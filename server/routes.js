@@ -12,5 +12,8 @@ module.exports = function(app) {
 //  app.use('/api/things', require('./api/thing'));
   app.use('/api/logs', require('./api/log'));    
   
-
+  app.route('/*')
+    .get(function(req, res) {
+      res.sendFile(path.resolve(app.get('appPath') + '/index.html'));
+    });
 };

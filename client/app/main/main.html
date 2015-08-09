@@ -1,0 +1,47 @@
+<div ng-include="'components/navbar/navbar.html'"></div>
+<div class="navbar navbar-default navbar-static-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button class="navbar-toggle" type="button" ng-click="isCollapsed = !isCollapsed">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div collapse="isCollapsed" class="navbar-collapse collapse" id="navbar-main">
+            <ul class="nav navbar-nav">
+                <li ng-repeat="item in menu" ng-class="{active: isActive(item.link)}">
+                    <a ng-href="#" ng-click="changeLog(item.title)">{{item.title}}</a>
+                </li>
+                <li ng-show="isAdmin()" ng-class="{active: isActive('/admin')}"><a href="/admin">Admin</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+<div class="container">
+    <div class="panel panel-primary agentContainer" ng-repeat="agent in agents.status">
+        <div class="panel-heading">{{agent.agentName}}</div>
+        <div class="panel-body">
+            {{agent.latetStatus}}
+            {{agent.agentExtension}} {{agent.logType}} {{agent.error}} {{ agent.callDirection}} {{ agent.callType}} {{agent. number}} {{ agent.callDuration}} {{ agent.ip}} {{ agent.webSockectFunction}} {{ agent.webSockectBody}} {{ agent.webSockectDuration}} {{agent.activieStatus}} {{ agent.activeDuration}} {{ agent.uuId}} {{ agent.freeSwitch}} {{ agent.webSocket}} {{ agent.previewsStatus}} {{ agent.timeStamp}} {{agent.active}}
+        </div>
+    </div>
+    <input type="text" ng-model="filter" class="form-control" placeholder="filter" ng-show="liveMode">
+ <div class="panel panel-primary" ng-repeat="agent in liveLogs | orderBy : '-timeStamp'| filter:filter">
+        <div class="panel-heading">{{agent.agentName}}</div>
+        <div class="panel-body">
+            {{agent.latetStatus}}
+            {{agent.agentExtension}} {{agent.logType}} {{agent.error}} {{ agent.callDirection}} {{ agent.callType}} {{agent. number}} {{ agent.callDuration}} {{ agent.ip}} {{ agent.webSockectFunction}} {{ agent.webSockectBody}} {{ agent.webSockectDuration}} {{agent.activieStatus}} {{ agent.activeDuration}} {{ agent.uuId}} {{ agent.freeSwitch}} {{ agent.webSocket}} {{ agent.previewsStatus}} {{ agent.timeStamp}} {{agent.active}}
+        </div>
+    </div>
+</div>
+
+<footer class="footer">
+    <div class="container">
+        <p>CopyRight @TMS |
+            <a href="#">@Farzad Aziminia</a> |</p>
+    </div>
+</footer>

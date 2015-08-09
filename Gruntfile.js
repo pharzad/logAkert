@@ -1,4 +1,4 @@
-// Generated on 2015-08-04 using generator-node-express-mongo 2.1.1
+// Generated on 2015-07-29 using generator-angular-fullstack 2.1.1
 'use strict';
 
 module.exports = function (grunt) {
@@ -29,6 +29,7 @@ module.exports = function (grunt) {
     pkg: grunt.file.readJSON('package.json'),
     yeoman: {
       // configurable paths
+      client: require('./bower.json').appPath || 'client',
       dist: 'dist'
     },
     express: {
@@ -78,6 +79,13 @@ module.exports = function (grunt) {
         ],
         tasks: ['newer:jshint:all', 'karma']
       },
+      babel: {
+        files: [
+          '<%= yeoman.client %>/{app,components}/**/*.js',
+          '!<%= yeoman.client %>/{app,components}/**/*.spec.js'
+        ],
+        tasks: ['babel']
+      },
       gruntfile: {
         files: ['Gruntfile.js']
       },
@@ -86,7 +94,7 @@ module.exports = function (grunt) {
           '{.tmp,<%= yeoman.client %>}/{app,components}/**/*.css',
           '{.tmp,<%= yeoman.client %>}/{app,components}/**/*.html',
           
-          '{.tmp,<%= yeoman.client %>}/{app,components}/**/*.js',
+          '.tmp/{app,components}/**/*.js',
           
           '!{.tmp,<%= yeoman.client %>}{app,components}/**/*.spec.js',
           '!{.tmp,<%= yeoman.client %>}/{app,components}/**/*.mock.js',
@@ -208,6 +216,15 @@ module.exports = function (grunt) {
       }
     },
 
+    // Automatically inject Bower components into the app
+    wiredep: {
+      target: {
+        src: '<%= yeoman.client %>/index.html',
+        ignorePath: '<%= yeoman.client %>/',
+        exclude: [/bootstrap-sass-official/, /bootstrap.js/, '/json3/', '/es5-shim/']
+      }
+    },
+
     // Renames files for browser caching purposes
     rev: {
       dist: {
@@ -291,7 +308,7 @@ module.exports = function (grunt) {
     ngtemplates: {
       options: {
         // This should be the name of your apps angular module
-        module: 'logAlertApp',
+        module: 'portOfAdvsApp',
         htmlmin: {
           collapseBooleanAttributes: true,
           collapseWhitespace: true,
@@ -385,8 +402,10 @@ module.exports = function (grunt) {
     // Run some tasks in parallel to speed up the build process
     concurrent: {
       server: [
+        'babel',
       ],
       test: [
+        'babel',
       ],
       debug: {
         tasks: [
@@ -398,6 +417,7 @@ module.exports = function (grunt) {
         }
       },
       dist: [
+        'babel',
         'imagemin',
         'svgmin'
       ]
@@ -441,6 +461,24 @@ module.exports = function (grunt) {
       all: localConfig
     },
 
+    // Compiles ES6 to JavaScript using Babel
+    babel: {
+      options: { 
+        sourceMap: true
+      },
+      server: {
+        files: [{
+          expand: true,
+          cwd: 'client',
+          src: [
+            '{app,components}/**/*.js',
+            '!{app,components}/**/*.spec.js'
+          ],
+          dest: '.tmp'
+        }]
+      }
+    },
+
     injector: {
       options: {
 
@@ -460,7 +498,7 @@ module.exports = function (grunt) {
           '<%= yeoman.client %>/index.html': [
                [
                  
-                 '{.tmp,<%= yeoman.client %>}/{app,components}/**/*.js',
+                 '.tmp/{app,components}/**/*.js',
                  
                  '!{.tmp,<%= yeoman.client %>}/app/app.js',               
                  '!{.tmp,<%= yeoman.client %>}/{app,components}/**/*.spec.js',
@@ -517,6 +555,7 @@ module.exports = function (grunt) {
         'env:all',
         'concurrent:server',
         'injector',
+        'wiredep',
         'autoprefixer',
         'concurrent:debug'
       ]);
@@ -527,6 +566,7 @@ module.exports = function (grunt) {
       'env:all',
       'concurrent:server',
       'injector',
+      'wiredep',
       'autoprefixer',
       'express:dev',
       'wait',
@@ -567,6 +607,7 @@ module.exports = function (grunt) {
         'env:test',
         'concurrent:test',
         'injector',
+        'wiredep',
         'autoprefixer',
         'express:dev',
         'protractor'
@@ -583,6 +624,7 @@ module.exports = function (grunt) {
     'clean:dist',
     'concurrent:dist',
     'injector',
+    'wiredep',
     'useminPrepare',
     'autoprefixer',
     'ngtemplates',
