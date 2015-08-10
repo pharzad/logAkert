@@ -25,26 +25,23 @@
     <div class="panel panel-primary agentContainer" ng-repeat="agent in agents.status">
         <div class="panel-heading">{{agent.agentName}}</div>
         <div class="panel-body">
-            {{agent.agentExtension==undefined}}
-            {{agent.agentExtension==''}}
-            {{agent.agentExtension==null}}
-            <p ng-hide="agent.agentExtension!='undefined'||agent.agentExtension!==null">Extension:{{agent.agentExtension}}</p>
-            <p ng-show="agent.logType!=='undefined'">Log Type:{{agent.logType}} </p>
-            <p ng-show="agent.error!=='undefined'">Error:{{agent.error}} </p>
-            <p ng-show="agent.callDirection!=='undefined'">Direction:{{agent.callDirection}} </p>
-            <p ng-show="agent.number!=='undefined'">Number:{{agent.number}} </p>
-            <p ng-show="agent.callDuration!=='undefined'">Call Duration:{{agent.callDuration}} </p>
-            <p ng-show="agent.webSockectFunction!=='undefined'">Function:{{agent.webSockectFunction}} </p>
-            <p ng-show="agent.webSockectBody!=='undefined'">Function:{{agent.webSockectBody}} </p>
-            <p ng-show="agent.webSockectDuration!=='undefined'">WebSockectDuration:{{agent.webSockectDuration}} </p>
-            <p ng-show="agent.activieStatus!=='undefined'">Activie Status:{{agent.activieStatus}} </p>
-            <p ng-show="agent.activeDuration!=='undefined'">Active Duration{{agent.activeDuration}} </p>
-            <p ng-show="agent.previewsStatus!=='undefined'">Previews Status:{{agent.previewsStatus}} </p>
-            <p ng-show="agent.timeStamp!=='undefined'">timeStamp:{{agent.timeStamp}} </p>
-            <p ng-show="agent.ip!=='undefined'">Ip:{{agent.ip}} </p>
-            <p ng-show="agent.freeSwitch!=='undefined'">freeSwitch:{{agent.freeSwitch}} </p>
-            <p ng-show="agent.webSocket!=='undefined'">WebSocket:{{agent.webSocket}} </p>
-            <p ng-show="agent.uuId!=='undefined'">UUID:{{agent.uuId}} </p>
+            <p ng-hide="agent.agentExtension==''||agent.agentExtension!==null">Extension:{{agent.agentExtension}}</p>
+            <p ng-hide="agent.logType==''">Log Type:{{agent.logType}} </p>
+            <p ng-hide="agent.error==''">Error:{{agent.error}} </p>
+            <p ng-hide="agent.callDirection==''">Direction:{{agent.callDirection}} </p>
+            <p ng-hide="agent.number==''">Number:{{agent.number}} </p>
+            <p ng-hide="agent.callDuration==''">Call Duration:{{agent.callDuration}} </p>
+            <p ng-hide="agent.webSockectFunction==''">Function:{{agent.webSockectFunction}} </p>
+            <p ng-hide="agent.webSockectBody==''">Function:{{agent.webSockectBody}} </p>
+            <p ng-hide="agent.webSockectDuration==''">WebSockectDuration:{{agent.webSockectDuration}} </p>
+            <p ng-show="agent.activieStatus==''">Activie Status:{{agent.activieStatus}} </p>
+            <p ng-hide="agent.activeDuration==''">Active Duration{{agent.activeDuration}} </p>
+            <p ng-hide="agent.previewsStatus==''">Previews Status:{{agent.previewsStatus}} </p>
+            <p ng-hide="agent.timeStamp==''">timeStamp:{{agent.timeStamp}} </p>
+            <p ng-hide="agent.ip==''">Ip:{{agent.ip}} </p>
+            <p ng-hide="agent.freeSwitch==''">freeSwitch:{{agent.freeSwitch}} </p>
+            <p ng-hide="agent.webSocket==''">WebSocket:{{agent.webSocket}} </p>
+            <p ng-hide="agent.uuId==''">UUID:{{agent.uuId}} </p>
             
             
             {{agent.latetStatus}}
