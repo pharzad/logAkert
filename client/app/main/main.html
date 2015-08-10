@@ -26,7 +26,7 @@
         <div class="panel-heading">{{agent.agentName}}</div>
         <div class="panel-body">
             
-            <p ng-show="agent.agentExtension!==''">Extension:{{agent.agentExtension}}</p>
+            <p ng-show="agent.agentExtension!==''||agent.agentExtension!==null">Extension:{{agent.agentExtension}}</p>
             <p ng-show="agent.logType!==''">Log Type:{{agent.logType}} </p>
             <p ng-show="agent.error!==''">Error:{{agent.error}} </p>
             <p ng-show="agent.callDirection!==''">Direction:{{agent.callDirection}} </p>
