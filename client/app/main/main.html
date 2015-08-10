@@ -25,8 +25,28 @@
     <div class="panel panel-primary agentContainer" ng-repeat="agent in agents.status">
         <div class="panel-heading">{{agent.agentName}}</div>
         <div class="panel-body">
+            
+            <p ng-show="agent.agentExtension!==''">Extension:{{agent.agentExtension}}</p>
+            <p ng-show="agent.logType!==''">Log Type:{{agent.logType}} </p>
+            <p ng-show="agent.error!==''">Error:{{agent.error}} </p>
+            <p ng-show="agent.callDirection!==''">Direction:{{agent.callDirection}} </p>
+            <p ng-show="agent.number!==''">Number:{{agent.number}} </p>
+            <p ng-show="agent.callDuration!==''">Call Duration:{{agent.callDuration}} </p>
+            <p ng-show="agent.webSockectFunction!==''">Function:{{agent.webSockectFunction}} </p>
+            <p ng-show="agent.webSockectBody!==''">Function:{{agent.webSockectBody}} </p>
+            <p ng-show="agent.webSockectDuration!==''">WebSockectDuration:{{agent.webSockectDuration}} </p>
+            <p ng-show="agent.activieStatus!==''">Activie Status:{{agent.activieStatus}} </p>
+            <p ng-show="agent.activeDuration!==''">Active Duration{{agent.activeDuration}} </p>
+            <p ng-show="agent.previewsStatus!==''">Previews Status:{{agent.previewsStatus}} </p>
+            <p ng-show="agent.timeStamp!==''">timeStamp:{{agent.timeStamp}} </p>
+            <p ng-show="agent.ip!==''">Ip:{{agent.ip}} </p>
+            <p ng-show="agent.freeSwitch!==''">freeSwitch:{{agent.freeSwitch}} </p>
+            <p ng-show="agent.webSocket!==''">WebSocket:{{agent.webSocket}} </p>
+            <p ng-show="agent.uuId!==''">UUID:{{agent.uuId}} </p>
+            
+            
             {{agent.latetStatus}}
-            {{agent.agentExtension}} {{agent.logType}} {{agent.error}} {{ agent.callDirection}} {{ agent.callType}} {{agent. number}} {{ agent.callDuration}} {{ agent.ip}} {{ agent.webSockectFunction}} {{ agent.webSockectBody}} {{ agent.webSockectDuration}} {{agent.activieStatus}} {{ agent.activeDuration}} {{ agent.uuId}} {{ agent.freeSwitch}} {{ agent.webSocket}} {{ agent.previewsStatus}} {{ agent.timeStamp}} {{agent.active}}
+
         </div>
     </div>
     <input type="text" ng-model="filter" class="form-control" placeholder="filter" ng-show="liveMode">
