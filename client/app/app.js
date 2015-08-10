@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('LogAlert', [
+angular.module('portOfAdvsApp', [
   'ngCookies',
   'ngResource',
   'ngSanitize',
