@@ -26,6 +26,9 @@
         <div class="panel-heading">{{agent.agentName}}</div>
         <div class="panel-body">
             {{agent.error==''}}
+            {{agent.error==undefined}}
+            {{agent.error=='undefined'}}
+            {{agent.error==null}}
             <p ng-hide="agent.agentExtension==''">Extension:{{agent.agentExtension}}</p>
             <p ng-hide="agent.logType==''">Log Type:{{agent.logType}} </p>
             <p ng-hide="agent.error==''">Error:{{agent.error}} </p>
