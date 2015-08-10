@@ -25,7 +25,8 @@
     <div class="panel panel-primary agentContainer" ng-repeat="agent in agents.status">
         <div class="panel-heading">{{agent.agentName}}</div>
         <div class="panel-body">
-            <p ng-hide="agent.agentExtension==''||agent.agentExtension!==null">Extension:{{agent.agentExtension}}</p>
+            {{agent.error==''}}
+            <p ng-hide="agent.agentExtension==''">Extension:{{agent.agentExtension}}</p>
             <p ng-hide="agent.logType==''">Log Type:{{agent.logType}} </p>
             <p ng-hide="agent.error==''">Error:{{agent.error}} </p>
             <p ng-hide="agent.callDirection==''">Direction:{{agent.callDirection}} </p>
