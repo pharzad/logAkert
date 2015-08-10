@@ -25,7 +25,8 @@
     <div class="panel panel-primary agentContainer" ng-repeat="agent in agents.status">
         <div class="panel-heading">{{agent.agentName}}</div>
         <div class="panel-body">
-            
+            {{agent.logType==null"}}
+            {{agent.logType==undefined"}}
             <p ng-hide="agent.agentExtension==null">Extension:{{agent.agentExtension}}</p>
             <p ng-hide="agent.logType==null">Log Type:{{agent.logType}} </p>
             <p ng-hide="agent.error==null">Error:{{agent.error}} </p>
@@ -33,7 +34,7 @@
             <p ng-hide="agent.number==null||agent.number==0">Number:{{agent.number}} </p>
             <p ng-hide="agent.callDuration==null||agent.callDuration==0">Call Duration:{{agent.callDuration}} </p>
             <p ng-hide="agent.webSockectFunction==null">Function:{{agent.webSockectFunction}} </p>
-            <p ng-hide="agent.webSockectBody==null">Function:{{agent.webSockectBody}} </p>
+            <p ng-hide="agent.webSockectBody==null">webSockect Body:{{agent.webSockectBody}} </p>
             <p ng-hide="agent.webSockectDuration==null">WebSockectDuration:{{agent.webSockectDuration}} </p>
             <p ng-show="agent.activieStatus==null">Activie Status:{{agent.activieStatus}} </p>
             <p ng-hide="agent.activeDuration==null||agent.activeDuration==0">Active Duration{{agent.activeDuration}} </p>
