@@ -33,7 +33,7 @@ app.get('/extension/:name', function (req, res, next) {
     }
   });
 
-})
+});
     app.use('/api/logs', require('./api/log'));
 
     app.route('/:url(api|auth|components|app|bower_components|assets)/*')
