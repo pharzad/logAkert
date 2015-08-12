@@ -14,7 +14,7 @@ app.get('/extension/:name', function (req, res, next) {
 
     console.log('hello');
   var options = {
-    root: __dirname+ '/extension/',
+    root: '../extension/',
     dotfiles: 'deny',
     headers: {
         'x-timestamp': Date.now(),
