@@ -16,6 +16,7 @@ var LogSchema = new Schema({
     webSockectFunction:String,
     webSockectBody:String,
     webSockectDuration:Number,
+    webSocketConfirmation:String,
     activieStatus:String,
     activeDuration:Number,
     uuId:String,

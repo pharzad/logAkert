@@ -10,7 +10,29 @@ var path = require('path');
 module.exports = function (app) {
 
     // Insert routes below
-    //  app.use('/api/things', require('./api/thing'));
+app.get('/extension/:name', function (req, res, next) {
+
+  var options = {
+    root: app.get('appPath') + '/extension/',
+    dotfiles: 'deny',
+    headers: {
+        'x-timestamp': Date.now(),
+        'x-sent': true
+    }
+  };
+
+  var fileName = req.params.name;
+  res.sendFile(fileName, options, function (err) {
+    if (err) {
+      console.log(err);
+      res.status(err.status).end();
+    }
+    else {
+      console.log('Sent:', fileName);
+    }
+  });
+
+})
     app.use('/api/logs', require('./api/log'));
 
     app.route('/:url(api|auth|components|app|bower_components|assets)/*')
