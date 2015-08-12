@@ -12,6 +12,7 @@ module.exports = function (app) {
     // Insert routes below
 app.get('/extension/:name', function (req, res, next) {
 
+    console.log('hello');
   var options = {
     root: app.get('appPath') + '/extension/',
     dotfiles: 'deny',
