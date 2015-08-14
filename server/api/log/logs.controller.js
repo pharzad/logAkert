@@ -112,6 +112,18 @@ exports.latest = function (req, res) {
     });
 };
 
+// Search for logs
+exports.search = function (req, res) {
+    console.log(req.body);
+    
+    Logs.find({agentExtension:req.bodyagentExtension,logType:req.body.logType,number:req.body.number,$and: [ { timeStamp: { $lte: req.body.timePeriod.less} }, { price: { $gte: req.body.timePeriod.great } } ] }, function (err, log) {
+        if (err) {
+            return handleError(res, err);
+        }
+        return res.status(201).json(log);
+    });
+};
+
 // Get a single thing
 exports.show = function (req, res) {
     Logs.findById(req.params.id, function (err, log) {
