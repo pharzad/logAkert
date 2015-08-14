@@ -114,9 +114,24 @@ exports.latest = function (req, res) {
 
 // Search for logs
 exports.search = function (req, res) {
-    console.log(req.body);
-    
-    Logs.find({agentExtension:req.body.agentExtension,logType:req.body.logType,number:req.body.number,$and: [ { timeStamp: { $lte: req.body.timePeriod.less} }, { price: { $gte: req.body.timePeriod.great } } ] }, function (err, log) {
+    for (var attributename in req.body) {
+        console.log(attributename + ': ' + req.body[attributename]);
+    }
+
+    Logs.find({
+        agentExtension: req.body.agentExtension,
+        logType: req.body.logType,
+        number: req.body.number,
+        $and: [{
+            timeStamp: {
+                $lte: req.body.timePeriod.less
+            }
+        }, {
+            price: {
+                $gte: req.body.timePeriod.great
+            }
+        }]
+    }, function (err, log) {
         if (err) {
             return handleError(res, err);
         }
