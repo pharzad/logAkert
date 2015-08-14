@@ -114,9 +114,9 @@ exports.latest = function (req, res) {
 
 // Search for logs
 exports.search = function (req, res) {
-    console.log(req.body);
+    console.log(req.body.agentExtension);
     
-    Logs.find({agentExtension:req.body.bodyagentExtension}, function (err, log) {
+    Logs.find({agentExtension:req.body.agentExtension}, function (err, log) {
         if (err) {
             return handleError(res, err);
         }
