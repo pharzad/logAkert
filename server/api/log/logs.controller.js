@@ -114,13 +114,8 @@ exports.latest = function (req, res) {
 
 // Search for logs
 exports.search = function (req, res) {
-    var searchCriteria = {};
-    for (var attributename in req.body) {
-        if (req.body[attributename]!=='')
-            searchCriteria = req.body[attributename];
-    }
 
-    Logs.find(searchCriteria, function (err, log) {
+    Logs.find(req.body, function (err, log) {
         if (err) {
             return handleError(res, err);
         }
