@@ -39,11 +39,11 @@ angular.module('portOfAdvsApp')
         };
 
         httpServices.getLatestStatus().then(function (agentsStatus) {
-            
+
             console.log($scope.agents.status.agentExtension);
-            
+
             console.log(typeof $scope.agents.status.agentExtension);
-            
+
             $scope.agents.status = agentsStatus.data;
         });
 
@@ -55,5 +55,8 @@ angular.module('portOfAdvsApp')
                 $scope.liveLogs.push(res);
                 $scope.$apply();
             }
+        });
+        socket.socket.on('log:error', function (res) {
+            alert(res.error);
         });
     });

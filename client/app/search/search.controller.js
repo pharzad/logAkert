@@ -90,4 +90,8 @@ angular.module('portOfAdvsApp')
                 $scope.$apply();
             }
         });
+
+        socket.socket.on('log:error', function (res) {
+            alert(res.error);
+        });
     });
