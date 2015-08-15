@@ -5,7 +5,7 @@ angular.module('portOfAdvsApp')
     $stateProvider
       .state('search', {
         url: '/search',
-        templateUrl: 'app/main/search.html',
-        controller: 'MainCtrl'
+        templateUrl: 'app/search/search.html',
+        controller: 'SearchCtrl'
       });
   });

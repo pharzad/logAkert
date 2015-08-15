@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('portOfAdvsApp')
-    .controller('MainCtrl', function ($scope, $http, socket, httpServices) {
+    .controller('SearchCtrl', function ($scope, $http, socket, httpServices) {
 
  $scope.goSearch = function(){
  
