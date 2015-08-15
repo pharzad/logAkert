@@ -23,7 +23,7 @@
         </div>
         <button type="submit" class="btn btn-default" ng-click="goSearch()">Search</button>
     </form>
-    <div class="panel panel-primary agentContainer" ng-repeat="agent in agents.status">
+    <div class="panel panel-primary agentContainer" ng-repeat="agent in searchResult">
         <div class="panel-heading">{{agent.agentName}}</div>
         <div class="panel-body">
             <p ng-hide="agent.agentExtension==undefined||agent.agentExtension == ''">Extension:{{agent.agentExtension}}</p>

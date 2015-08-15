@@ -2,6 +2,8 @@
 
 angular.module('portOfAdvsApp')
     .controller('SearchCtrl', function ($scope, $http, socket, httpServices) {
+    
+    $scope.searchResult = [];
 
         $scope.goSearch = function () {
 
@@ -46,6 +48,10 @@ angular.module('portOfAdvsApp')
                 console.log($scope.search);
                 httpServices.search($scope.search).then(function(res){
                 
+                    if (res.status==='201' || res.status==='200')
+                    {
+                        $scope.searchResult = res.data;
+                    }
                     console.log(res);
                     
                 });
