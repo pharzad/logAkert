@@ -3,15 +3,20 @@
 angular.module('portOfAdvsApp')
     .factory('httpServices', function ($http) {
 
-    var server = 'http://10.248.251.240:9000/';
+        var server = 'http://10.248.251.240:9000/';
         var http = {};
 
         http.getLatestStatus = function () {
-            return $http.get(server+'api/logs/getLatestStatus');
+            return $http.get(server + 'api/logs/getLatestStatus');
         };
 
         http.getLatestActivity = function () {
-            return $http.get(server+'api/logs/getLatestActivity');
+            return $http.get(server + 'api/logs/getLatestActivity');
         };
+
+        http.search = function (search) {
+            return $http.post(server + 'api/logs/search', search);
+        };
+
         return http;
     });

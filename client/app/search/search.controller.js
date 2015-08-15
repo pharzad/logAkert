@@ -8,6 +8,10 @@ angular.module('portOfAdvsApp')
             console.log($scope.search);
 
             if (typeof $scope.search !== 'undefined') {
+                if ($scope.search.$and)
+                    delete $scope.search.$and;
+                if ($scope.search.timeStamp)
+                    delete $scope.search.timeStamp;
                 if ($scope.search.date) {
                     if (($scope.search.date.from && $scope.search.date.to) && ($scope.search.date.from !== '' && $scope.search.date.to !== '')) {
                         $scope.search.$and = [{
@@ -40,6 +44,11 @@ angular.module('portOfAdvsApp')
                     delete $scope.search.webSockectDuration;
                 
                 console.log($scope.search);
+                httpServices.search($scope.search).then(function(res){
+                
+                    console.log(res);
+                    
+                });
             }
             //     for (var key in $scope.search) {
             //   if ($scope.search.hasOwnProperty(key)) {
