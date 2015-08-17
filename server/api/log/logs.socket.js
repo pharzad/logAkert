@@ -48,7 +48,13 @@ function errorHandel(doc) {
                 res = 1;
         }
         if (res === 0)
+        {
             errorTmp.push(doc);
+            console.log(doc);
+        }
     } else
+    {
         errorTmp.push(doc);
+        console.log(doc);
+    }
 }
