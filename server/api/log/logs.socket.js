@@ -42,19 +42,17 @@ function onRemove(socket, doc, cb) {
 
 function errorHandel(doc) {
     var res = 0;
+    console.log('Error');
+    console.log(doc);
     if (errorTmp.length > 0) {
         for (var tmp in errorTmp) {
             if (tmp.error === doc.error)
                 res = 1;
         }
-        if (res === 0)
-        {
+        if (res === 0) {
             errorTmp.push(doc);
-            console.log(doc);
         }
-    } else
-    {
+    } else {
         errorTmp.push(doc);
-        console.log(doc);
     }
 }
