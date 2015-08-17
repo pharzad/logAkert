@@ -15,9 +15,12 @@ exports.register = function (socket) {
     });
 
     setInterval(function () {
+        var i = 0;
         if (errorTmp.length > 0) {
             for (var tmp in errorTmp) {
                 socket.emit('log:error', tmp);
+                errorTmp.splice(i, 1);
+                i++;
             }
         }
     }, 3000);
