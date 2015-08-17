@@ -17,6 +17,7 @@ exports.register = function (socket) {
     setInterval(function () {
         var i = 0;
         if (errorTmp.length > 0) {
+            console.log(errorTmp.length);
             for (var tmp in errorTmp) {
                 socket.emit('log:error', tmp);
                 errorTmp.splice(i, 1);
