@@ -137,10 +137,10 @@ exports.show = function (req, res) {
 
 // Creates a new thing in the DB.
 exports.create = function (req, res) {
-    console.log(req.body);
     if (req.body) {
         req.body.ip = req.ip;
     }
+        console.log(req.body);
     Logs.create(req.body, function (err, log) {
         if (err) {
             return handleError(res, err);
