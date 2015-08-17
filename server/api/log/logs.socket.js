@@ -19,6 +19,7 @@ exports.register = function (socket) {
         if (errorTmp.length > 0) {
             console.log(errorTmp.length);
             for (var tmp in errorTmp) {
+                console.log('************************************');
                 console.log(tmp);
                 socket.emit('log:error', tmp);
                 errorTmp.splice(i, 1);
@@ -42,8 +43,6 @@ function onRemove(socket, doc, cb) {
 
 function errorHandel(doc) {
     var res = 0;
-    console.log('Error');
-    console.log(doc);
     if (errorTmp.length > 0) {
         for (var tmp in errorTmp) {
             if (tmp.error === doc.error)
