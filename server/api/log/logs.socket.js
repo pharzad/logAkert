@@ -15,13 +15,12 @@ exports.register = function (socket) {
     });
 
     setInterval(function () {
-        var i = 0;
         if (errorTmp.length > 0) {
             console.log(errorTmp.length);
-            for (var tmp in errorTmp) {
+            for (var i = 0 ; i < errorTmp.length ; i++) {
                 console.log('************************************');
-                console.log(tmp);
-                socket.emit('log:error', tmp);
+                console.log(errorTmp[i]);
+                socket.emit('log:error', errorTmp[i]);
                 errorTmp.splice(i, 1);
                 i++;
             }
