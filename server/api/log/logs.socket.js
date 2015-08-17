@@ -19,6 +19,7 @@ exports.register = function (socket) {
         if (errorTmp.length > 0) {
             console.log(errorTmp.length);
             for (var tmp in errorTmp) {
+                console.log(tmp);
                 socket.emit('log:error', tmp);
                 errorTmp.splice(i, 1);
                 i++;
