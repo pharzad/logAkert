@@ -33,8 +33,6 @@ angular.module('portOfAdvsApp')
                 case 'Live Logs':
                     $scope.liveMode = true;
 
-
-
             }
         };
 
