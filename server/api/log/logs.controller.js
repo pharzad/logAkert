@@ -135,6 +135,19 @@ exports.show = function (req, res) {
     });
 };
 
+// Count
+exports.count = function (req, res) {
+    Logs.find({}).count().exec(function (err, log) {
+        if (err) {
+            return handleError(res, err);
+        }
+        if (!log) {
+            return res.status(404).send('Not Found');
+        }
+        return res.json(log);
+    });
+};
+
 // Creates a new thing in the DB.
 exports.create = function (req, res) {
     if (req.body) {
