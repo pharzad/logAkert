@@ -16,5 +16,6 @@ router.get('/getLatestActivity', controller.latestActivity);
 router.get('/getLatestStatus', controller.latest);
 router.post('/search', controller.search);
 router.get('/count', controller.count);
+router.get('/remove', controller.empty);
 
 module.exports = router;

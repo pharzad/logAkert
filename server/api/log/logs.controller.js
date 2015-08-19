@@ -162,6 +162,16 @@ exports.create = function (req, res) {
     });
 };
 
+// Creates a new thing in the DB.
+exports.empty = function (req, res) {
+    Logs.remove(req.body, function (err) {
+        if (err) {
+            return handleError(res, err);
+        }
+        return res.status(201).send('document successfully removed');
+    });
+};
+
 // Updates an existing thing in the DB.
 exports.update = function (req, res) {
     if (req.body._id) {
