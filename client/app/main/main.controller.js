@@ -56,6 +56,6 @@ angular.module('portOfAdvsApp')
         });
     
         socket.socket.on('log:error', function (res) {
-            alert(res);
+            console.warn(res);
         });
     });
