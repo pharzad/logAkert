@@ -22,7 +22,7 @@ exports.register = function (socket) {
 };
 
 function onSave(socket, doc, cb) {
-    //    socket.emit('log:save', doc);
+        socket.emit('log:save', doc);
     if (doc.logType === 'Error' || doc.logType === 'servicingError') {
         errorHandel(doc, socket);
     }
