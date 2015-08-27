@@ -16,31 +16,24 @@ exports.register = function (socket) {
 
     setInterval(function () {
         if (errorTmp.length > 0) {
-            console.log(errorTmp.length);
-            for (var i = 0 ; i < errorTmp.length ; i++) {
-                console.log('************************************');
-                console.log(errorTmp[i]);
-                socket.emit('log:error', errorTmp[i]);
-                errorTmp.splice(i, 1);
-                i++;
-            }
+            errorTmp = [];
         }
     }, 3000);
 };
 
 function onSave(socket, doc, cb) {
-    socket.emit('log:save', doc);
-    if (doc.logType === 'Error') {
-        errorHandel(doc);
+    //    socket.emit('log:save', doc);
+    if (doc.logType === 'Error' || doc.logType === 'servicingError') {
+        errorHandel(doc, socket);
     }
 }
 
 function onRemove(socket, doc, cb) {
-    socket.emit('log:remove', doc);
+    //    socket.emit('log:remove', doc);
 }
 
 
-function errorHandel(doc) {
+function errorHandel(doc, socket) {
     var res = 0;
     if (errorTmp.length > 0) {
         for (var tmp in errorTmp) {
@@ -49,8 +42,10 @@ function errorHandel(doc) {
         }
         if (res === 0) {
             errorTmp.push(doc);
+            socket.emit('log:error', doc);
         }
     } else {
         errorTmp.push(doc);
+        socket.emit('log:error', doc);
     }
 }
