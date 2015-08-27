@@ -92,6 +92,6 @@ angular.module('portOfAdvsApp')
         });
 
         socket.socket.on('log:error', function (res) {
-            alert(res);
+            console.error(JSON.parse(res));
         });
     });
