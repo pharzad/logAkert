@@ -12,6 +12,16 @@ exports.index = function (req, res) {
     });
 };
 
+// Get list of userTable
+exports.getUserTimeTable = function (req, res) {
+    timeTable.find({userName:req.params.user},function (err, things) {
+        if (err) {
+            return handleError(res, err);
+        }
+        return res.status(200).json(things);
+    });
+};
+
 // Creates a new thing in the DB.
 exports.create = function (req, res) {
 
