@@ -1,6 +1,6 @@
 'use strict';
 
-var timeTable = require('./logs.model');
+var timeTable = require('./timeTable.model');
 
 // Get list of things
 exports.index = function (req, res) {
