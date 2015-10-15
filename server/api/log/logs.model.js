@@ -4,26 +4,40 @@ var mongoose = require('mongoose'),
     Schema = mongoose.Schema;
 
 var LogSchema = new Schema({
-    agentName: String,
-    agentExtension: Number,
+    agent: {
+        name: String,
+        ip: String,
+        extention: String
+    },
+    error: {
+        errorType: String,
+        errorMessage: String,
+        line: String
+    },
+    webSocket: {
+        function: String,
+        body: String,
+        duration: Number,
+        confirmation: String,
+    },
+    freeSwitch: {
+        duration: Number
+    },
+    call: {
+        direction: String,
+        number: Number,
+        duration: Number,
+        type: String
+    },
+    status: {
+        newStatus: String,
+        statusDuration: Number,
+        previewsStatus: String,
+    },
     logType: String,
-    error:String,
-    callDirection:String,
-    callType:String,
-    number:Number,
-    callDuration:Number,
-    ip:String,
-    webSockectFunction:String,
-    webSockectBody:String,
-    webSockectDuration:Number,
-    webSocketConfirmation:String,
-    activieStatus:String,
-    activeDuration:Number,
-    uuId:String,
-    freeSwitch:String,
-    webSocket:String,
-    previewsStatus:String,
-    timeStamp:Date,
+    uuId: String,
+    freeSwitchAddress: String,
+    timeStamp: Date,
     active: Boolean
 });
 

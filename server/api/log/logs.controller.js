@@ -151,7 +151,7 @@ exports.count = function (req, res) {
 // Creates a new thing in the DB.
 exports.create = function (req, res) {
     if (req.body) {
-        req.body.ip = req.ip;
+        req.body.agent.ip = req.agent.ip;
     }
         console.log(req.body);
     Logs.create(req.body, function (err, log) {

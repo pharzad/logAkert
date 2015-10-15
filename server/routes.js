@@ -35,7 +35,6 @@ app.get('/extension/:name', function (req, res, next) {
 
 });
     app.use('/api/logs', require('./api/log'));
-    app.use('/api/timeTable', require('./api/timeTable'));
 
     app.route('/:url(api|auth|components|app|bower_components|assets)/*')
         .get(errors[404]);
