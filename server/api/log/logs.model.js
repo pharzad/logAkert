@@ -13,7 +13,7 @@ var LogSchema = new Schema({
         Calldirection: String,
         number: Number,
         duration: Number,
-        type: String
+        callType: String
     },
     error: {
         errorType: String,
