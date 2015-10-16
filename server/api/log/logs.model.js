@@ -23,12 +23,6 @@ var LogSchema = new Schema({
     freeSwitch: {
         duration: Number
     },
-    callInfo: {
-        Calldirection: String,
-        number: Number,
-        duration: Number,
-        type: String
-    },
     status: {
         newStatus: String,
         statusDuration: Number,
