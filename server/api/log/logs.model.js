@@ -7,7 +7,7 @@ var LogSchema = new Schema({
     agent: {
         name: String,
         ip: String,
-        extention: String
+        extention: Number
     },
     error: {
         errorType: String,
@@ -41,4 +41,4 @@ var LogSchema = new Schema({
     active: Boolean
 });
 
-module.exports = mongoose.model('Log', LogSchema);
+module.exports = mongoose.model('Log', LogSchema); 
