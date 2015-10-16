@@ -22,7 +22,7 @@ var LogSchema = new Schema({
     },
     webSocket: {
         webSocketFunction: String,
-        body: String,
+        webSocketBody: String,
         duration: Number,
         confirmation: String,
     },
