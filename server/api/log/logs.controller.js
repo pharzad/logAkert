@@ -9,7 +9,7 @@ function getLatestAgent(agents) {
     agents.forEach(function (agent) {
         var deferred = Q.defer();
         Logs.findOne({
-            agentExtension: agent
+            agent.agent.extention: agent
         }).sort({
             'timeStamp': -1
         }).exec(function (err, stste) {
@@ -36,7 +36,7 @@ exports.index = function (req, res) {
 //test
 exports.latestActivity = function (req, res) {
 
-    Logs.distinct('agentExtension').exec(function (err, agents) {
+    Logs.distinct('agent.extention').exec(function (err, agents) {
         if (err) {
             return handleError(res, err);
         }
@@ -114,7 +114,7 @@ exports.latest = function (req, res) {
 
 // Search for logs
 exports.search = function (req, res) {
-    Logs.find(req.body).sort({timeStamp:-1}).exec(function (err, log) {
+    Logs.find(req.body).limit(100).sort({timeStamp:-1}).exec(function (err, log) {
         if (err) {
             return handleError(res, err);
         }

@@ -13,7 +13,11 @@ angular.module('portOfAdvsApp')
             'title': 'Latest Logs'
     }, {
             'title': 'Live Logs'
-    }];
+    }, {
+            title: 'Fe Error'
+        }, {
+            title: 'All Errors'
+}];
 
         $scope.changeLog = function (item) {
             $scope.liveLogs = [];
@@ -27,6 +31,15 @@ angular.module('portOfAdvsApp')
                     break;
                 case 'Latest Logs':
                     httpServices.getLatestActivity().then(function (agentsStatus) {
+                        $scope.agents.status = agentsStatus.data;
+                    });
+                    break;
+                case 'All Errors':
+                    httpServices.search({
+                        error.errorType: {
+                            $exists: true
+                        }
+                    }).then(function (agentsStatus) {
                         $scope.agents.status = agentsStatus.data;
                     });
                     break;
@@ -54,7 +67,7 @@ angular.module('portOfAdvsApp')
                 $scope.$apply();
             }
         });
-    
+
         socket.socket.on('log:error', function (res) {
             console.warn(res);
         });
