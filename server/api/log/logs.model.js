@@ -24,7 +24,7 @@ var LogSchema = new Schema({
         duration: Number
     },
     call: {
-        direction: String,
+        Calldirection: String,
         number: Number,
         duration: Number,
         type: String
@@ -37,8 +37,8 @@ var LogSchema = new Schema({
     logType: String,
     uuId: String,
     freeSwitchAddress: String,
-    timeStamp: Number,
+    timeStamp: Date,
     active: Boolean
 });
 
-module.exports = mongoose.model('Log', LogSchema); 
+module.exports = mongoose.model('Log', LogSchema);
