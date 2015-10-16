@@ -9,6 +9,12 @@ var LogSchema = new Schema({
         ip: String,
         extention: Number
     },
+    callInfo: {
+        Calldirection: String,
+        number: Number,
+        duration: Number,
+        type: String
+    },
     error: {
         errorType: String,
         errorMessage: String,
