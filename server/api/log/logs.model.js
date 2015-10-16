@@ -37,7 +37,7 @@ var LogSchema = new Schema({
     logType: String,
     uuId: String,
     freeSwitchAddress: String,
-    timeStamp: Date,
+    timeStamp: Number,
     active: Boolean
 });
 
