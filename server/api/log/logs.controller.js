@@ -96,12 +96,12 @@ exports.latest = function (req, res) {
         }
     }, {
         $group: {
-            _id: '$agentExtension',
+            _id: '$agent.agentExtension',
             latetStatus: {
-                $first: '$activieStatus'
+                $first: '$status.newStatus'
             },
             agentName: {
-                $first: '$agentName'
+                $first: '$agent.name'
             }
         }
     }]).exec(function (err, stste) {
@@ -122,7 +122,7 @@ exports.search = function (req, res) {
     });
 };
 
-// Get a single thing
+// Get a single log
 exports.show = function (req, res) {
     Logs.findById(req.params.id, function (err, log) {
         if (err) {
@@ -135,7 +135,7 @@ exports.show = function (req, res) {
     });
 };
 
-// Count
+// Count logs
 exports.count = function (req, res) {
     Logs.find({}).count().exec(function (err, log) {
         if (err) {
@@ -148,7 +148,7 @@ exports.count = function (req, res) {
     });
 };
 
-// Creates a new thing in the DB.
+// Creates a new Log in the DB.
 exports.create = function (req, res) {
     if (req.body) {
         req.body.agent.ip = req.ip;
@@ -162,7 +162,7 @@ exports.create = function (req, res) {
     });
 };
 
-// Creates a new thing in the DB.
+// Empty log collection
 exports.empty = function (req, res) {
     Logs.remove(req.body, function (err) {
         if (err) {
@@ -172,7 +172,7 @@ exports.empty = function (req, res) {
     });
 };
 
-// Updates an existing thing in the DB.
+// Updates an existing log in the DB.
 exports.update = function (req, res) {
     if (req.body._id) {
         delete req.body._id;
@@ -194,7 +194,7 @@ exports.update = function (req, res) {
     });
 };
 
-// Deletes a thing from the DB.
+// Deletes a log from the DB.
 exports.destroy = function (req, res) {
     Logs.findById(req.params.id, function (err, log) {
         if (err) {
