@@ -36,7 +36,7 @@ angular.module('portOfAdvsApp')
                     break;
                 case 'All Errors':
                     httpServices.search({
-                        error.errorType: {
+                        'error.errorType': {
                             $exists: true
                         }
                     }).then(function (agentsStatus) {
