@@ -18,8 +18,14 @@ angular.module('portOfAdvsApp')
         }, {
             title: 'All Errors'
 }];
-
+        $scope.environments = [];
         dropDown.getDropDowns().then(function (drop) {
+            $scope.dropdown = drop;
+            angular.forEach(drop.environments, function (env) {
+                var tmp = env.splice('.');
+                if (tmp[0])
+                    $scope.environments.push(tmp[0]);
+            });
             console.log(drop)
         });
 

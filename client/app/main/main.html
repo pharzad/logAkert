@@ -19,7 +19,9 @@
         </div>
     </div>
 </div>
-{{agent.status.newStatus}}
+<select class="form-control" ng-options = "env for env in environments">
+  <option value="">Select Environment</option>
+</select>
 <div class="container">
     <div class="panel panel-primary agentContainer" ng-repeat="agent in agents.status" ng-if="agent.agentName">
         <div class="panel-heading">{{agent.agentName}}</div>
