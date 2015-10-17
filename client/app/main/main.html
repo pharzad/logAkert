@@ -27,7 +27,7 @@
             <p>Status:{{agent.latetStatus}}</p>
         </div>
     </div>
-    <div class="panel panel-primary agentContainer" ng-repeat="agent in agents.status" ng-hide="agent.agentName==undefined">
+    <div class="panel panel-primary agentContainer" ng-repeat="agent in agents.status" ng-hide="agent.agentName==''">
         <div class="panel-heading">{{agent.agent.name}}</div>
         <div class="panel-body">
             <p ng-hide="agent.agentExtension==undefined||agent.agentExtension == ''">Extension:{{agent.agentExtension}}</p>
