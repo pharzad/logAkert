@@ -42,3 +42,6 @@
     width: 25%;
     overflow: scroll;
 }
+panel-body > p:nth-child(even) {
+    background: #CCC;
+}
