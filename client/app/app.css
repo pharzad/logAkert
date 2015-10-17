@@ -24,6 +24,9 @@
  * App-wide Styles
  */
 
+.panel-primary > .panel-heading {
+background-color: #a0ca74;
+}
 .browsehappy {
     margin: 0.2em 0;
     background: #ccc;

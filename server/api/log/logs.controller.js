@@ -44,48 +44,41 @@ exports.latestActivity = function (req, res) {
             return res.status(200).json(result);
         });
     });
-    //    Logs.find().select('agentExtension').exec(function (err, stste) {
-    //        if (err) {
-    //            return handleError(res, err);
-    //        }
-    //        return res.status(200).json(stste);
-    //    });
-    //    Logs.aggregate([{
-    //        $sort: {
-    //            timeStamp: -1
-    //        }
-    //    }, {
-    //        $group: {
-    //            _id: '$agentExtension',
-    //            event: {
-    //                $first: '$logType'
-    //            }
-    //
-    //        }
-    //    }]).exec(function (err, stste) {
-    //        if (err) {
-    //            return handleError(res, err);
-    //        }
-    //        return res.status(200).json(stste);
-    //    });
 };
 
-//test1
-exports.latest = function (req, res) {
-    //    var ststus = [];
-    //  Logs.distinct ('agentExtension').exec(function (err, things) {
-    //    if(err) { return handleError(res, err); }
-    //      for (var i = 0; i<things.length; i++)
-    //      {
-    //          console.log(things[i]);
-    //          Logs.findOne({logType: 'statusChanged', agentExtension:things[i]}).sort({'timeStamp':-1}).exec(function (err, stste) {
-    //              if(err) { return handleError(res, err); }Z
-    //              ststus.push(stste);
-    //              });
-    //      }
-    //    return res.status(200).json(ststus);
-    //  });
+exports.dropDownFields = function (req, res) {
 
+    Logs.distinct('agent.name').exec(function (err, agents) {
+        if (err) {
+            return handleError(res, err);
+        }
+        Logs.distinct('error.errorType').exec(function (err, error) {
+            if (err) {
+                return handleError(res, err);
+            }
+            Logs.distinct('logType').exec(function (err, logType) {
+                if (err) {
+                    return handleError(res, err);
+                }
+                Logs.distinct('freeSwitchAddress').exec(function (err, environment) {
+                    if (err) {
+                        return handleError(res, err);
+                    }
+                    var fields = {
+                        agents: agents,
+                        errors: error,
+                        logTypes: logType,
+                        environments: environment
+                    };
+                    return res.status(200).json(fields);
+                });
+            });
+        });
+    });
+};
+
+//Latest Status
+exports.latest = function (req, res) {
     Logs.aggregate([{
         $sort: {
             timeStamp: -1
@@ -114,7 +107,9 @@ exports.latest = function (req, res) {
 
 // Search for logs
 exports.search = function (req, res) {
-    Logs.find(req.body).limit(100).sort({timeStamp:-1}).exec(function (err, log) {
+    Logs.find(req.body).limit(100).sort({
+        timeStamp: -1
+    }).exec(function (err, log) {
         if (err) {
             return handleError(res, err);
         }
@@ -153,7 +148,7 @@ exports.create = function (req, res) {
     if (req.body) {
         req.body.agent.ip = req.ip;
     }
-        console.log(req.body);
+    console.log(req.body);
     Logs.create(req.body, function (err, log) {
         if (err) {
             return handleError(res, err);

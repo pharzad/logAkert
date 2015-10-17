@@ -11,7 +11,7 @@ router.post('/', controller.create);
 router.put('/:id', controller.update);
 router.patch('/:id', controller.update);
 router.delete('/:id', controller.destroy);
-
+router.get('/dropDownFields', controller.dropDownFields);
 router.get('/getLatestActivity', controller.latestActivity);
 router.get('/getLatestStatus', controller.latest);
 router.post('/search', controller.search);
