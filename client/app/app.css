@@ -23,6 +23,11 @@
 /**
  * App-wide Styles
  */
+
+.navbar-default .navbar-nav > li > a
+{
+    color: #F4F4F4;
+}
 .navbar-default
 {
     background-color: darkcyan;
