@@ -4,12 +4,22 @@ angular.module('portOfAdvsApp')
     .factory('dropDown', function (httpServices) {
 
         var dropDown = {};
+    
+    function dropDownLoader()
+    {
         httpServices.getDropDowns().then(function (drop) {
-            dropDown = drop
+            dropDown = drop.data;
         });
+    }
+    dropDownLoader();
         var object = {};
 
         object.getDropDowns = function () {
+            if (_.isEmpty(dropDown))
+                {
+                  return  dropDownLoader();
+                }
+            else
             return dropDown;
         };
 
