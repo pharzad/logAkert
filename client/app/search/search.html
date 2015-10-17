@@ -38,11 +38,11 @@
             <p ng-hide="agent.webSocket.webSocketBody==undefined||agent.webSocket.webSocketBody == ''">webSockect Body:{{agent.webSocket.webSocketBody}} </p>
             <p ng-hide="agent.webSocket.duration==undefined||agent.webSocket.duration == ''">WebSockectDuration:{{agent.webSocket.duration}} </p>
             <p ng-hide="agent.webSocket.confirmation==undefined||agent.webSocket.confirmation == ''">webSocketConfirmation:{{agent.webSocket.confirmation}}</p>
-            <p ng-show="agent.status.newStatus==undefined||agent.status.newStatus == ''">Activie Status:{{agent.status.newStatus}} </p>
+            <p ng-hide="agent.status.newStatus==undefined||agent.status.newStatus == ''">Activie Status:{{agent.status.newStatus}} </p>
             <p ng-hide="agent.status.statusDuration==undefined||agent.status.statusDuration==0">Active Duration:{{agent.status.statusDuration}} </p>
             <p ng-hide="agent.status.previewsStatus==undefined||agent.status.previewsStatus == ''">Previews Status:{{agent.status.previewsStatus}} </p>
             <p ng-hide="agent.freeSwitch.duration==undefined||agent.freeSwitch.duration == ''">Freeswitch Duration:{{agent.freeSwitch.duration}} </p>
-            <p ng-hide="agent.timeStamp==undefined||agent.timeStamp == ''">timeStamp:{{agent.timeStamp}} | date : format : UTC </p>
+            <p ng-hide="agent.timeStamp==undefined||agent.timeStamp == ''">timeStamp:{{agent.timeStamp| date : format : UTC }} </p>
             <p ng-hide="agent.ip.agent==undefined||agent.ip.agent == ''">Ip:{{agent.agent.ip}} </p>
             <p ng-hide="agent.freeSwitchAddress==undefined||agent.freeSwitchAddress == ''">freeSwitch:{{agent.freeSwitchAddress}} </p>
             <p ng-hide="agent.webSocket==undefined||agent.webSocket == ''">WebSocket:{{agent.webSocket}} </p>

@@ -46,7 +46,7 @@
             <p ng-hide="agent.status.statusDuration==undefined||agent.status.statusDuration==0">Active Duration:{{agent.status.statusDuration}} </p>
             <p ng-hide="agent.status.previewsStatus==undefined||agent.status.previewsStatus == ''">Previews Status:{{agent.status.previewsStatus}} </p>
             <p ng-hide="agent.freeSwitch.duration==undefined||agent.freeSwitch.duration == ''">Freeswitch Duration:{{agent.freeSwitch.duration}} </p>
-            <p ng-hide="agent.timeStamp==undefined||agent.timeStamp == ''">timeStamp:{{agent.timeStamp}} | date : format : UTC </p>
+            <p ng-hide="agent.timeStamp==undefined||agent.timeStamp == ''">timeStamp:{{agent.timeStamp| date : format : UTC}}</p>
             <p ng-hide="agent.ip.agent==undefined||agent.ip.agent == ''">Ip:{{agent.agent.ip}} </p>
             <p ng-hide="agent.freeSwitchAddress==undefined||agent.freeSwitchAddress == ''">freeSwitch:{{agent.freeSwitchAddress}} </p>
             <p ng-hide="agent.webSocket==undefined||agent.webSocket == ''">WebSocket:{{agent.webSocket}} </p>
@@ -55,7 +55,7 @@
     </div>
     <input type="text" ng-model="filter" class="form-control" placeholder="filter" ng-show="liveMode">
     <div class="panel panel-primary" ng-repeat="agent in liveLogs | orderBy : '-timeStamp'| filter:filter">
-        <div class="panel-heading">{{agent.agentName}}</div>
+        <div class="panel-heading">{{agent.agent.name}}</div>
         <div class="panel-body">
             <p ng-hide="agent.agentExtension==undefined||agent.agentExtension == ''">Extension:{{agent.agentExtension}}</p>
             <p ng-hide="agent.logType==undefined||agent.agentExtension == ''">Log Type:{{agent.logType}} </p>
@@ -73,7 +73,7 @@
             <p ng-hide="agent.status.statusDuration==undefined||agent.status.statusDuration==0">Active Duration:{{agent.status.statusDuration}} </p>
             <p ng-hide="agent.status.previewsStatus==undefined||agent.status.previewsStatus == ''">Previews Status:{{agent.status.previewsStatus}} </p>
             <p ng-hide="agent.freeSwitch.duration==undefined||agent.freeSwitch.duration == ''">Freeswitch Duration:{{agent.freeSwitch.duration}} </p>
-            <p ng-hide="agent.timeStamp==undefined||agent.timeStamp == ''">timeStamp:{{agent.timeStamp}} | date : format : UTC </p>
+            <p ng-hide="agent.timeStamp==undefined||agent.timeStamp == ''">timeStamp:{{agent.timeStamp| date : format : UTC}} </p>
             <p ng-hide="agent.ip.agent==undefined||agent.ip.agent == ''">Ip:{{agent.agent.ip}} </p>
             <p ng-hide="agent.freeSwitchAddress==undefined||agent.freeSwitchAddress == ''">freeSwitch:{{agent.freeSwitchAddress}} </p>
             <p ng-hide="agent.webSocket==undefined||agent.webSocket == ''">WebSocket:{{agent.webSocket}} </p>
