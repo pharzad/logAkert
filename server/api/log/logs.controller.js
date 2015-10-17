@@ -100,7 +100,7 @@ exports.latest = function (req, res) {
             latetStatus: {
                 $first: '$status.newStatus'
             },
-            'agent.name': {
+            agentName: {
                 $first: '$agent.name'
             }
         }
