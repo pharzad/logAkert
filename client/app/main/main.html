@@ -20,41 +20,6 @@
     </div>
 </div>
 
-agent: {
-        name: String,
-        ip: String,
-        extention: Number
-    },
-    callInfo: {
-        Calldirection: String,
-        number: Number,
-        duration: Number,
-        callType: String
-    },
-    error: {
-        errorType: String,
-        errorMessage: String,
-        line: String
-    },
-    webSocket: {
-        webSocketFunction: String,
-        webSocketBody: String,
-        duration: Number,
-        confirmation: String,
-    },
-    freeSwitch: {
-        duration: Number
-    },
-    status: {
-        newStatus: String,
-        statusDuration: Number,
-        previewsStatus: String,
-    },
-    logType: String,
-    uuId: String,
-    freeSwitchAddress: String,
-    timeStamp: Date,
-    active: Boolean
 <div class="container">
     <div class="panel panel-primary agentContainer" ng-repeat="agent in agents.status">
         <div class="panel-heading">{{agent.agent.name}}</div>
@@ -71,7 +36,7 @@ agent: {
             <p ng-hide="agent.webSocket.webSocketBody==undefined||agent.webSocket.webSocketBody == ''">webSockect Body:{{agent.webSocket.webSocketBody}} </p>
             <p ng-hide="agent.webSocket.duration==undefined||agent.webSocket.duration == ''">WebSockectDuration:{{agent.webSocket.duration}} </p>
             <p ng-hide="agent.webSocket.confirmation==undefined||agent.webSocket.confirmation == ''">webSocketConfirmation:{{agent.webSocket.confirmation}}</p>
-            <p ng-show="agent.status.newStatus==undefined||agent.status.newStatus == ''">Activie Status:{{agent.status.newStatus}} </p>
+            <p ng-show="agent.status.newStatus == undefined||agent.status.newStatus == ''">Activie Status:{{agent.status.newStatus}} </p>
             <p ng-hide="agent.status.statusDuration==undefined||agent.status.statusDuration==0">Active Duration:{{agent.status.statusDuration}} </p>
             <p ng-hide="agent.status.previewsStatus==undefined||agent.status.previewsStatus == ''">Previews Status:{{agent.status.previewsStatus}} </p>
             <p ng-hide="agent.freeSwitch.duration==undefined||agent.freeSwitch.duration == ''">Freeswitch Duration:{{agent.freeSwitch.duration}} </p>
@@ -80,7 +45,6 @@ agent: {
             <p ng-hide="agent.freeSwitchAddress==undefined||agent.freeSwitchAddress == ''">freeSwitch:{{agent.freeSwitchAddress}} </p>
             <p ng-hide="agent.webSocket==undefined||agent.webSocket == ''">WebSocket:{{agent.webSocket}} </p>
             <p ng-hide="agent.uuId==undefined||agent.uuId == ''">UUID:{{agent.uuId}} </p>
-            {{agent.latetStatus}}
         </div>
     </div>
     <input type="text" ng-model="filter" class="form-control" placeholder="filter" ng-show="liveMode">
