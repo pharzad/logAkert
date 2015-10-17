@@ -21,6 +21,7 @@ angular.module('portOfAdvsApp')
     
   var  bn = dropDown.getDropDowns();
     console.log(bn);
+    console.log(dropDown.getDropDowns());
 
         $scope.changeLog = function (item) {
             $scope.liveLogs = [];
