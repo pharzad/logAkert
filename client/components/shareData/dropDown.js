@@ -9,6 +9,7 @@ angular.module('portOfAdvsApp')
     {
         httpServices.getDropDowns().then(function (drop) {
             dropDown = drop.data;
+            return dropDown;
         });
     }
     dropDownLoader();
