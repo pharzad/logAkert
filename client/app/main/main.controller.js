@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('portOfAdvsApp')
-    .controller('MainCtrl', function ($scope, $http, socket, httpServices) {
+    .controller('MainCtrl', function ($scope, $http, socket, httpServices, dropDown) {
 
         $scope.liveMode = false;
         $scope.agents = {};
@@ -18,6 +18,10 @@ angular.module('portOfAdvsApp')
         }, {
             title: 'All Errors'
 }];
+    
+    dropDown.getDropDowns(function(drop){
+        console.log(drop);
+    });
 
         $scope.changeLog = function (item) {
             $scope.liveLogs = [];

@@ -17,5 +17,9 @@ angular.module('portOfAdvsApp')
         http.search = function (search) {
             return $http.post(server + 'api/logs/search', search);
         };
+
+        http.getDropDowns = function () {
+            return $http.get(server + 'api/logs/dropDownFields');
+        };
         return http;
     });
