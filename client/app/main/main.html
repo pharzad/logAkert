@@ -32,7 +32,7 @@
         <div class="panel-body">
             <p ng-hide="agent.agentExtension==undefined||agent.agentExtension == ''">Extension:{{agent.agentExtension}}</p>
             <p ng-hide="agent.logType==undefined||agent.agentExtension == ''">Log Type:{{agent.logType}} </p>
-            <p ng-hide="agent.error.errorType == undefined||agent.error.errorType == ''">Error:{{agent.error.errorType}} </p>    
+            <p ng-hide="agent.error.errorType == undefined||agent.error.errorType == ''">Error:{{agent.error.errorType}} </p>
             <p ng-hide="agent.error.errorMessage == undefined||agent.error.errorMessage == ''">Error detail:{{agent.error.errorMessage}} </p>
             <p ng-hide="agent.callInfo.Calldirection==undefined||agent.callInfo.Calldirection == ''">Direction:{{agent.callInfo.Calldirection}} </p>
             <p ng-hide="agent.callInfo.number==undefined||agent.callInfo.number==0">Number:{{agent.callInfo.number}} </p>
@@ -54,12 +54,12 @@
         </div>
     </div>
     <input type="text" ng-model="filter" class="form-control" placeholder="filter" ng-show="liveMode">
- <div class="panel panel-primary" ng-repeat="agent in liveLogs | orderBy : '-timeStamp'| filter:filter">
+    <div class="panel panel-primary" ng-repeat="agent in liveLogs | orderBy : '-timeStamp'| filter:filter">
         <div class="panel-heading">{{agent.agentName}}</div>
         <div class="panel-body">
             <p ng-hide="agent.agentExtension==undefined||agent.agentExtension == ''">Extension:{{agent.agentExtension}}</p>
             <p ng-hide="agent.logType==undefined||agent.agentExtension == ''">Log Type:{{agent.logType}} </p>
-            <p ng-hide="agent.error.errorType == undefined||agent.error.errorType == ''">Error:{{agent.error.errorType}} </p>    
+            <p ng-hide="agent.error.errorType == undefined||agent.error.errorType == ''">Error:{{agent.error.errorType}} </p>
             <p ng-hide="agent.error.errorMessage == undefined||agent.error.errorMessage == ''">Error detail:{{agent.error.errorMessage}} </p>
             <p ng-hide="agent.callInfo.Calldirection==undefined||agent.callInfo.Calldirection == ''">Direction:{{agent.callInfo.Calldirection}} </p>
             <p ng-hide="agent.callInfo.number==undefined||agent.callInfo.number==0">Number:{{agent.callInfo.number}} </p>
@@ -78,9 +78,9 @@
             <p ng-hide="agent.freeSwitchAddress==undefined||agent.freeSwitchAddress == ''">freeSwitch:{{agent.freeSwitchAddress}} </p>
             <p ng-hide="agent.webSocket==undefined||agent.webSocket == ''">WebSocket:{{agent.webSocket}} </p>
             <p ng-hide="agent.uuId==undefined||agent.uuId == ''">UUID:{{agent.uuId}} </p>
+        </div>
     </div>
 </div>
-
 <footer class="footer">
     <div class="container">
         <p>CopyRight @TMS |
