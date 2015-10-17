@@ -1,14 +1,16 @@
 'use strict';
 
 angular.module('portOfAdvsApp')
-    .factory('dropDown', function (httpServices,$q) {
+    .factory('dropDown', function (httpServices, $q) {
 
         var dropDown = {};
         var object = {};
-var def = $q.defer();
+        var def = $q.defer();
+
         function dropDownLoader() {
             return httpServices.getDropDowns().then(function (drop) {
                 dropDown = drop.data;
+                return drop.data;
             });
         }
 
