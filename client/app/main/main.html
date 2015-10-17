@@ -21,13 +21,13 @@
 </div>
 {{agent.status.newStatus}}
 <div class="container">
-    <div class="panel panel-primary agentContainer" ng-repeat="agent in agents.status" ng-if="agent.agentName!==undefined||agent.agentName!''">
+    <div class="panel panel-primary agentContainer" ng-repeat="agent in agents.status" ng-if="agent.agentName!=undefined||agent.agentName!=''">
         <div class="panel-heading">{{agent.agentName}}</div>
         <div class="panel-body">
             <p>Status:{{agent.latetStatus}}</p>
         </div>
     </div>
-    <div class="panel panel-primary agentContainer" ng-repeat="agent in agents.status" ng-hide="agent.agentName!==undefined||agent.agentName!''">
+    <div class="panel panel-primary agentContainer" ng-repeat="agent in agents.status" ng-hide="agent.agentName!==undefined||agent.agentName!=''">
         <div class="panel-heading">{{agent.agent.name}}</div>
         <div class="panel-body">
             <p ng-hide="agent.agentExtension==undefined||agent.agentExtension == ''">Extension:{{agent.agentExtension}}</p>
@@ -42,7 +42,7 @@
             <p ng-hide="agent.webSocket.webSocketBody==undefined||agent.webSocket.webSocketBody == ''">webSockect Body:{{agent.webSocket.webSocketBody}} </p>
             <p ng-hide="agent.webSocket.duration==undefined||agent.webSocket.duration == ''">WebSockectDuration:{{agent.webSocket.duration}} </p>
             <p ng-hide="agent.webSocket.confirmation==undefined||agent.webSocket.confirmation == ''">webSocketConfirmation:{{agent.webSocket.confirmation}}</p>
-            <p ng-show="agent.status.newStatus == undefined||agent.status.newStatus == ''">Activie Status:{{agent.status.newStatus}} </p>
+            <p ng-hide="agent.status.newStatus == undefined||agent.status.newStatus == ''">Activie Status:{{agent.status.newStatus}} </p>
             <p ng-hide="agent.status.statusDuration==undefined||agent.status.statusDuration==0">Active Duration:{{agent.status.statusDuration}} </p>
             <p ng-hide="agent.status.previewsStatus==undefined||agent.status.previewsStatus == ''">Previews Status:{{agent.status.previewsStatus}} </p>
             <p ng-hide="agent.freeSwitch.duration==undefined||agent.freeSwitch.duration == ''">Freeswitch Duration:{{agent.freeSwitch.duration}} </p>
@@ -69,7 +69,7 @@
             <p ng-hide="agent.webSocket.webSocketBody==undefined||agent.webSocket.webSocketBody == ''">webSockect Body:{{agent.webSocket.webSocketBody}} </p>
             <p ng-hide="agent.webSocket.duration==undefined||agent.webSocket.duration == ''">WebSockectDuration:{{agent.webSocket.duration}} </p>
             <p ng-hide="agent.webSocket.confirmation==undefined||agent.webSocket.confirmation == ''">webSocketConfirmation:{{agent.webSocket.confirmation}}</p>
-            <p ng-show="agent.status.newStatus==undefined||agent.status.newStatus == ''">Activie Status:{{agent.status.newStatus}} </p>
+            <p ng-hide="agent.status.newStatus==undefined||agent.status.newStatus == ''">Activie Status:{{agent.status.newStatus}} </p>
             <p ng-hide="agent.status.statusDuration==undefined||agent.status.statusDuration==0">Active Duration:{{agent.status.statusDuration}} </p>
             <p ng-hide="agent.status.previewsStatus==undefined||agent.status.previewsStatus == ''">Previews Status:{{agent.status.previewsStatus}} </p>
             <p ng-hide="agent.freeSwitch.duration==undefined||agent.freeSwitch.duration == ''">Freeswitch Duration:{{agent.freeSwitch.duration}} </p>
