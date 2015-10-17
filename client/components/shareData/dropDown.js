@@ -1,11 +1,11 @@
 'use strict';
 
 angular.module('portOfAdvsApp')
-    .factory('dropDown', function (httpServices) {
+    .factory('dropDown', function (httpServices,$q) {
 
         var dropDown = {};
         var object = {};
-
+var def = $q.defer();
         function dropDownLoader() {
             return httpServices.getDropDowns().then(function (drop) {
                 dropDown = drop.data;
@@ -16,7 +16,8 @@ angular.module('portOfAdvsApp')
             if (_.isEmpty(dropDown)) {
                 return dropDownLoader();
             } else {
-                return dropDown;
+                def.resolve(dropDown);
+                return def.promise();
             }
         };
 

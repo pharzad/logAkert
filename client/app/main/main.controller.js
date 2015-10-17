@@ -18,10 +18,10 @@ angular.module('portOfAdvsApp')
         }, {
             title: 'All Errors'
 }];
-    
-  var  bn = dropDown.getDropDowns();
-    console.log(bn);
-    console.log(dropDown.getDropDowns());
+
+        dropDown.getDropDowns().then(function (drop) {
+            console.log(drop)
+        });
 
         $scope.changeLog = function (item) {
             $scope.liveLogs = [];
@@ -47,7 +47,7 @@ angular.module('portOfAdvsApp')
                         $scope.agents.status = agentsStatus.data;
                     });
                     break;
-                     case 'Fe Error':
+                case 'Fe Error':
                     httpServices.search({
                         'error.errorType': 'servicingBE'
                     }).then(function (agentsStatus) {
