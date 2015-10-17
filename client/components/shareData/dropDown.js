@@ -14,4 +14,6 @@ angular.module('portOfAdvsApp')
         object.getDropDowns = function () {
             return dropDown;
         };
+    
+    return object;
     });
