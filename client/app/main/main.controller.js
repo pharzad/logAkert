@@ -19,9 +19,8 @@ angular.module('portOfAdvsApp')
             title: 'All Errors'
 }];
     
-    dropDown.getDropDowns(function(drop){
-        console.log(drop);
-    });
+  var  bn = dropDown.getDropDowns();
+    console.log(bn);
 
         $scope.changeLog = function (item) {
             $scope.liveLogs = [];
