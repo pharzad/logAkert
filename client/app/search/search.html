@@ -28,23 +28,25 @@
         <div class="panel-body">
             <p ng-hide="agent.agentExtension==undefined||agent.agentExtension == ''">Extension:{{agent.agentExtension}}</p>
             <p ng-hide="agent.logType==undefined||agent.agentExtension == ''">Log Type:{{agent.logType}} </p>
-            <p ng-hide="agent.error == undefined||agent.error == ''">Error:{{agent.error}} </p>
-            <p ng-hide="agent.callDirection==undefined||agent.callDirection == ''">Direction:{{agent.callDirection}} </p>
-            <p ng-hide="agent.number==undefined||agent.number==0">Number:{{agent.number}} </p>
-            <p ng-hide="agent.callDuration==undefined||agent.callDuration==0">Call Duration:{{agent.callDuration}} </p>
-            <p ng-hide="agent.webSockectFunction==undefined||agent.webSockectFunction == ''">Function:{{agent.webSockectFunction}} </p>
-            <p ng-hide="agent.webSockectBody==undefined||agent.webSockectBody == ''">WebSockect Body:{{agent.webSockectBody}} </p>
-            <p ng-hide="agent.webSockectDuration==undefined||agent.webSockectDuration == ''">WebSockectDuration:{{agent.webSockectDuration}} </p>
-            <p ng-hide="agent.webSocketConfirmation==undefined||agent.webSocketConfirmation == ''">webSocketConfirmation:{{agent.webSocketConfirmation}} </p>
-            <p ng-show="agent.activieStatus==undefined||agent.activieStatus == ''">Activie Status:{{agent.activieStatus}} </p>
-            <p ng-hide="agent.activeDuration==undefined||agent.activeDuration==0">Active Duration:{{agent.activeDuration}} </p>
-            <p ng-hide="agent.previewsStatus==undefined||agent.previewsStatus == ''">Previews Status:{{agent.previewsStatus}} </p>
-            <p ng-hide="agent.timeStamp==undefined||agent.timeStamp == ''">TimeStamp:{{agent.timeStamp}} </p>
-            <p ng-hide="agent.ip==undefined||agent.ip == ''">Ip:{{agent.ip}} </p>
-            <p ng-hide="agent.freeSwitch==undefined||agent.freeSwitch == ''">FreeSwitch:{{agent.freeSwitch}} </p>
+            <p ng-hide="agent.error.errorType == undefined||agent.error.errorType == ''">Error:{{agent.error.errorType}} </p>    
+            <p ng-hide="agent.error.errorMessage == undefined||agent.error.errorMessage == ''">Error detail:{{agent.error.errorMessage}} </p>
+            <p ng-hide="agent.callInfo.Calldirection==undefined||agent.callInfo.Calldirection == ''">Direction:{{agent.callInfo.Calldirection}} </p>
+            <p ng-hide="agent.callInfo.number==undefined||agent.callInfo.number==0">Number:{{agent.callInfo.number}} </p>
+            <p ng-hide="agent.callInfo.callType==undefined||agent.callInfo.callType==0">Call Type:{{agent.callInfo.callType}} </p>
+            <p ng-hide="agent.callInfo.duration == undefined||agent.callInfo.duration==0">Call Duration:{{agent.callInfo.duration}} </p>
+            <p ng-hide="agent.webSocket.webSocketFunction==undefined||agent.webSocket.webSocketFunction == ''">Function:{{agent.webSocket.webSocketFunction}} </p>
+            <p ng-hide="agent.webSocket.webSocketBody==undefined||agent.webSocket.webSocketBody == ''">webSockect Body:{{agent.webSocket.webSocketBody}} </p>
+            <p ng-hide="agent.webSocket.duration==undefined||agent.webSocket.duration == ''">WebSockectDuration:{{agent.webSocket.duration}} </p>
+            <p ng-hide="agent.webSocket.confirmation==undefined||agent.webSocket.confirmation == ''">webSocketConfirmation:{{agent.webSocket.confirmation}}</p>
+            <p ng-show="agent.status.newStatus==undefined||agent.status.newStatus == ''">Activie Status:{{agent.status.newStatus}} </p>
+            <p ng-hide="agent.status.statusDuration==undefined||agent.status.statusDuration==0">Active Duration:{{agent.status.statusDuration}} </p>
+            <p ng-hide="agent.status.previewsStatus==undefined||agent.status.previewsStatus == ''">Previews Status:{{agent.status.previewsStatus}} </p>
+            <p ng-hide="agent.freeSwitch.duration==undefined||agent.freeSwitch.duration == ''">Freeswitch Duration:{{agent.freeSwitch.duration}} </p>
+            <p ng-hide="agent.timeStamp==undefined||agent.timeStamp == ''">timeStamp:{{agent.timeStamp}} | date : format : UTC </p>
+            <p ng-hide="agent.ip.agent==undefined||agent.ip.agent == ''">Ip:{{agent.agent.ip}} </p>
+            <p ng-hide="agent.freeSwitchAddress==undefined||agent.freeSwitchAddress == ''">freeSwitch:{{agent.freeSwitchAddress}} </p>
             <p ng-hide="agent.webSocket==undefined||agent.webSocket == ''">WebSocket:{{agent.webSocket}} </p>
             <p ng-hide="agent.uuId==undefined||agent.uuId == ''">UUID:{{agent.uuId}} </p>
-            {{agent.latetStatus}}
         </div>
     </div>
 </div>

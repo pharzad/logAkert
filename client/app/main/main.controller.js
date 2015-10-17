@@ -36,9 +36,16 @@ angular.module('portOfAdvsApp')
                     break;
                 case 'All Errors':
                     httpServices.search({
-                        'error.errorType': {
+                        'error.errorType': ''{
                             $exists: true
-                        }
+                        }''
+                    }).then(function (agentsStatus) {
+                        $scope.agents.status = agentsStatus.data;
+                    });
+                    break;
+                     case 'Fe Error':
+                    httpServices.search({
+                        'error.errorType': 'servicingBE'
                     }).then(function (agentsStatus) {
                         $scope.agents.status = agentsStatus.data;
                     });
