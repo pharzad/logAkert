@@ -22,7 +22,7 @@ angular.module('portOfAdvsApp')
         dropDown.getDropDowns().then(function (drop) {
             $scope.dropdown = drop;
             angular.forEach(drop.environments, function (env) {
-                var tmp = env.splice('.');
+                var tmp = env.split('.');
                 if (tmp[0])
                     $scope.environments.push(tmp[0]);
             });
