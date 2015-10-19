@@ -6,7 +6,7 @@ angular.module('portOfAdvsApp')
         $scope.searchResult = [];
         $scope.search = {};
         $scope.search.agent = {};
-        $scope.search.websocket = {};
+        $scope.search.webSocket = {};
         $scope.search.callInfo = {};
 
         dropDown.getDropDowns().then(function (drop) {
@@ -16,79 +16,90 @@ angular.module('portOfAdvsApp')
 
         $scope.goSearch = function () {
 
-            console.log($scope.search);
+            var search = angular.copy($scope.search);
+            console.log(search);
 
-            //            if (typeof $scope.search !== 'undefined') {
-            //
-            //                if ($scope.search.webSockectDuration && $scope.search.webSockectDuration !== '')
-            //                    $scope.search.webSockectDuration = {
-            //                        $gte: $scope.search.webSockectDuration
-            //                    };
-            //
-            //                if ($scope.search.$and)
-            //                    delete $scope.search.$and;
-            //
-            //                if ($scope.search.timeStamp)
-            //                    delete $scope.search.timeStamp;
-            //
-            //                if ($scope.search.date) {
-            //                    if (($scope.search.date.from && $scope.search.date.to) && ($scope.search.date.from !== '' && $scope.search.date.to !== '')) {
-            //                        $scope.search.$and = [{
-            //                            timeStamp: {
-            //                                $gte: $scope.search.date.from
-            //                            }
-            //                        }, {
-            //                            timeStamp: {
-            //                                $lte: $scope.search.date.to
-            //                            }
-            //                        }];
-            //                    } else if ($scope.search.date.from && $scope.search.date.from !== '') {
-            //                        $scope.search.timeStamp = {
-            //                            $gte: $scope.search.date.from
-            //                        };
-            //                    } else if ($scope.search.date.to && $scope.search.date.to !== '') {
-            //                        $scope.search.timeStamp = {
-            //                            $lte: $scope.search.date.to
-            //                        };
-            //                    }
-            //                    delete $scope.search.date;
-            //                }
-            //
-            //                if ($scope.search.agentExtension === '')
-            //                    delete $scope.search.agentExtension;
-            //
-            //                if ($scope.search.logType === '')
-            //                    delete $scope.search.logType;
-            //
-            //                if ($scope.search.number === '')
-            //                    delete $scope.search.number;
-            //
-            //                if ($scope.search.webSockectDuration === '')
-            //                    delete $scope.search.webSockectDuration;
-            //
-            //                console.log($scope.search);
-            //                httpServices.search($scope.search).then(function (res) {
-            //
-            //                    if (res.status === 201 || res.status === 200) {
-            //                        $scope.searchResult = res.data;
-            //                    }
-            //                    console.log(res);
-            //
-            //                });
-            //            }
-            //     for (var key in $scope.search) {
-            //   if ($scope.search.hasOwnProperty(key)) {
-            //       var obj = $scope.search[key];
-            //       
-            //        for (var prop in obj) {
-            //          // important check that this is objects own property 
-            //          // not from prototype prop inherited
-            //          if(obj.hasOwnProperty(prop)){
-            //            console.log(prop + ' = '+ obj[prop]);
-            //          }
-            //       }
-            //    }
-            //}
+            if (search.freeSwitchAddress === null)
+                delete search.freeSwitchAddress;
+            if (search.logTypes === null)
+                delete search.logTypes;
+            if (search.webSocket.duration === null)
+                delete search.webSocket;
+            if (search.agent.name === null)
+                delete search.agent.name;
+
+
+            if (typeof $scope.search !== 'undefined') {
+
+                if (search.webSocket.duration && search.webSocket.duration !== '')
+                    search.webSocket.duration = {
+                        $gte: search.webSocket.duration
+                    };
+
+                if (search.$and)
+                    delete search.$and;
+
+                if (search.timeStamp)
+                    delete search.timeStamp;
+
+                if (search.date) {
+                    if ((search.date.from && search.date.to) && (search.date.from !== '' && search.date.to !== '')) {
+                        search.$and = [{
+                            timeStamp: {
+                                $gte: search.date.from
+                            }
+                                    }, {
+                            timeStamp: {
+                                $lte: search.date.to
+                            }
+                                    }];
+                    } else if (search.date.from && search.date.from !== '') {
+                        $scope.search.timeStamp = {
+                            $gte: $scope.search.date.from
+                        };
+                    } else if (search.date.to && search.date.to !== '') {
+                        search.timeStamp = {
+                            $lte: search.date.to
+                        };
+                    }
+                    delete search.date;
+                }
+
+                if (search.agentExtension === '')
+                    delete search.agentExtension;
+
+                if (search.logType === '')
+                    delete search.logType;
+
+                if (search.number === '')
+                    delete search.number;
+
+                if (search.webSocket.duration === '')
+                    delete search.webSocket.duration;
+
+                console.log(search);
+                //                            httpServices.search($scope.search).then(function (res) {
+                //            
+                //                                if (res.status === 201 || res.status === 200) {
+                //                                    $scope.searchResult = res.data;
+                //                                }
+                //                                console.log(res);
+                //            
+                //                            });
+            }
+            for (var key in $scope.search) {
+                if ($scope.search.hasOwnProperty(key)) {
+                    var obj = $scope.search[key];
+
+                    for (var prop in obj) {
+                        // important check that this is objects own property 
+                        // not from prototype prop inherited
+                        if (obj.hasOwnProperty(prop)) {
+                            console.log(prop + ' = ' + obj[prop]);
+                        }
+                    }
+                }
+            }
         };
 
         socket.socket.on('log:save', function (res) {
