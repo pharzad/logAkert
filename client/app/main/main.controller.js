@@ -26,7 +26,6 @@ angular.module('portOfAdvsApp')
                 if (tmp[0])
                     $scope.environments.push(tmp[0]);
             });
-            console.log(drop)
         });
 
         $scope.changeLog = function (item) {
