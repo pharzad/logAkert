@@ -5,7 +5,6 @@ angular.module('portOfAdvsApp')
 
         $scope.searchResult = [];
         $scope.search = {};
-        $scope.search.agent = {};
 
         dropDown.getDropDowns().then(function (drop) {
             console.log(drop);
@@ -15,35 +14,37 @@ angular.module('portOfAdvsApp')
         $scope.goSearch = function () {
 
             var search = angular.copy($scope.search);
+            var stringSeach ='';
             console.log(search);
 
-            if (search.freeSwitchAddress === null)
-                delete search.freeSwitchAddress;
-            if (search.logTypes === null)
-                delete search.logTypes;
-            if (search.webSocket === null)
-                delete search.webSocket;
-            if (search.name === null)
+            if (search.freeSwitchAddress)
+                stringSeach += JSON.stringify(search.freeSwitchAddress);
+            if (search.logTypes)
+                stringSeach += JSON.stringify(search.logTypes);
+            if (search.webSocket)
+                stringSeach += JSON.stringify(search.webSocket);
+            if (search.name)
                 delete search.name;
-            else
-                {
-                    search = search + {'agent.name':search.name};
-                    delete search.name;
-                }
+            else {
+                search = search + {
+                    'agent.name': search.name
+                };
+                delete search.name;
+            }
             if (search.number === null)
                 delete search.callInfo;
-            else 
-                {
-                    search = search + {'callInfo.number':search.number};
-                    delete search.callInfo;
-                }
+            else {
+                search = search + {
+                    'callInfo.number': search.number
+                };
+                delete search.callInfo;
+            }
             if (search.$and)
                 delete search.$and;
             if (search.timeStamp)
                 delete search.timeStamp;
 
             if (typeof $scope.search !== 'undefined') {
-
                 if (search.webSocket)
                     search.webSocket.duration = {
                         $gte: search.webSocket.duration
@@ -72,7 +73,7 @@ angular.module('portOfAdvsApp')
                 }
 
                 console.log(search);
-                httpServices.search(search).then(function (res) {
+                httpServices.search(stringSeach).then(function (res) {
 
                     if (res.status === 201 || res.status === 200) {
                         $scope.searchResult = res.data;
