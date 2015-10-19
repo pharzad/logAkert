@@ -47,7 +47,6 @@ exports.latestActivity = function (req, res) {
 };
 
 exports.dropDownFields = function (req, res) {
-
     Logs.distinct('agent.name').exec(function (err, agents) {
         if (err) {
             return handleError(res, err);
@@ -114,6 +113,7 @@ exports.search = function (req, res) {
         if (err) {
             return handleError(res, err);
         }
+        console.log(log);
         return res.status(201).json(log);
     });
 };
