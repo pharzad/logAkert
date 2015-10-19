@@ -37,7 +37,7 @@ angular.module('portOfAdvsApp')
 
             if (typeof $scope.search !== 'undefined') {
 
-                if (search.webSocket.duration && search.webSocket.duration !== '')
+                if (search.webSocket)
                     search.webSocket.duration = {
                         $gte: search.webSocket.duration
                     };
