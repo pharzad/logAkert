@@ -27,7 +27,12 @@ angular.module('portOfAdvsApp')
                 delete search.webSocket;
             if (search.agent.name === null)
                 delete search.agent.name;
-
+            if (search.callInfo.number === null)
+                delete search.callInfo;
+            if (search.$and)
+                delete search.$and;
+            if (search.timeStamp)
+                delete search.timeStamp;
 
             if (typeof $scope.search !== 'undefined') {
 
@@ -35,12 +40,6 @@ angular.module('portOfAdvsApp')
                     search.webSocket.duration = {
                         $gte: search.webSocket.duration
                     };
-
-                if (search.$and)
-                    delete search.$and;
-
-                if (search.timeStamp)
-                    delete search.timeStamp;
 
                 if (search.date) {
                     if ((search.date.from && search.date.to) && (search.date.from !== '' && search.date.to !== '')) {
@@ -54,8 +53,8 @@ angular.module('portOfAdvsApp')
                             }
                                     }];
                     } else if (search.date.from && search.date.from !== '') {
-                        $scope.search.timeStamp = {
-                            $gte: $scope.search.date.from
+                        search.timeStamp = {
+                            $gte: search.date.from
                         };
                     } else if (search.date.to && search.date.to !== '') {
                         search.timeStamp = {
@@ -64,18 +63,6 @@ angular.module('portOfAdvsApp')
                     }
                     delete search.date;
                 }
-
-                if (search.agentExtension === '')
-                    delete search.agentExtension;
-
-                if (search.logType === '')
-                    delete search.logType;
-
-                if (search.number === '')
-                    delete search.number;
-
-                if (search.webSocket.duration === '')
-                    delete search.webSocket.duration;
 
                 console.log(search);
                 httpServices.search(search).then(function (res) {
