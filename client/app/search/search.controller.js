@@ -78,28 +78,28 @@ angular.module('portOfAdvsApp')
                     delete search.webSocket.duration;
 
                 console.log(search);
-                //                            httpServices.search($scope.search).then(function (res) {
-                //            
-                //                                if (res.status === 201 || res.status === 200) {
-                //                                    $scope.searchResult = res.data;
-                //                                }
-                //                                console.log(res);
-                //            
-                //                            });
-            }
-            for (var key in $scope.search) {
-                if ($scope.search.hasOwnProperty(key)) {
-                    var obj = $scope.search[key];
+                httpServices.search($scope.search).then(function (res) {
 
-                    for (var prop in obj) {
-                        // important check that this is objects own property 
-                        // not from prototype prop inherited
-                        if (obj.hasOwnProperty(prop)) {
-                            console.log(prop + ' = ' + obj[prop]);
-                        }
+                    if (res.status === 201 || res.status === 200) {
+                        $scope.searchResult = res.data;
                     }
-                }
+                    console.log(res);
+
+                });
             }
+            //            for (var key in $scope.search) {
+            //                if ($scope.search.hasOwnProperty(key)) {
+            //                    var obj = $scope.search[key];
+            //
+            //                    for (var prop in obj) {
+            //                        // important check that this is objects own property 
+            //                        // not from prototype prop inherited
+            //                        if (obj.hasOwnProperty(prop)) {
+            //                            console.log(prop + ' = ' + obj[prop]);
+            //                        }
+            //                    }
+            //                }
+            //            }
         };
 
         socket.socket.on('log:save', function (res) {
