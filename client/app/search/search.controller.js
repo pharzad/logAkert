@@ -28,7 +28,7 @@ angular.module('portOfAdvsApp')
             else
                 {
                     search = search + {'agent.name':search.name};
-                    delete search.agent.name;
+                    delete search.name;
                 }
             if (search.number === null)
                 delete search.callInfo;
