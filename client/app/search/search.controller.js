@@ -31,11 +31,11 @@ angular.module('portOfAdvsApp')
                     delete search.agent.name;
                 }
             if (search.number === null)
-                delete search.search.callInfo;
+                delete search.callInfo;
             else 
                 {
                     search = search + {'callInfo.number':search.search.callInfo};
-                    delete search.search.callInfo;
+                    delete search.callInfo;
                 }
             if (search.$and)
                 delete search.$and;
