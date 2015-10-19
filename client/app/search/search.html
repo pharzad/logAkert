@@ -6,7 +6,7 @@
             <select ng-model="search.freeSwitchAddress" ng-options="env as env for env in dropdown.environments"><option value="">Environment</option></select>
         </div>
         <div class="form-group">
-            <select ng-model="search.agent.name" ng-options="agent as agent for agent in dropdown.agents"><option value="">Agent</option></select>
+            <select ng-model="search.name" ng-options="agent as agent for agent in dropdown.agents"><option value="">Agent</option></select>
         </div>
         <div class="form-group">
             <select ng-model="search.logTypes" ng-options="log as log for log in dropdown.logTypes"><option value="">Log Type</option></select>
@@ -18,10 +18,10 @@
             <input type="text" ng-model="search.date.to" class="form-control" placeholder="Date To">
         </div>
         <div class="form-group">
-            <input type="text" ng-model="search.callInfo.number" class="form-control"  placeholder="Phone Number">
+            <input type="text" ng-model="search.number" class="form-control"  placeholder="Phone Number">
         </div>
         <div class="form-group">
-            <input type="text" ng-model="search.webSocket.duration" class="form-control" placeholder="Min Websocket Duration">
+            <input type="text" ng-model="search.duration" class="form-control" placeholder="Min Websocket Duration">
         </div>
         <button type="submit" class="btn btn-default" ng-click="goSearch()">Search</button>
     </form>

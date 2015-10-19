@@ -21,15 +21,22 @@ angular.module('portOfAdvsApp')
                 delete search.freeSwitchAddress;
             if (search.logTypes === null)
                 delete search.logTypes;
-            if (search.webSocket)
-                if (search.webSocket.duration === null)
-                    delete search.webSocket;
-            if (search.agent)
-                if (search.agent.name === null)
+            if (search.webSocket === null)
+                delete search.webSocket;
+            if (search.name === null)
+                delete search.agent.name;
+            else
+                {
+                    search = search + {'agent.name':search.agent.name};
                     delete search.agent.name;
-            if (search.callInfo)
-                if (search.callInfo.number === null)
-                    delete search.callInfo;
+                }
+            if (search.number === null)
+                delete search.search.callInfo;
+            else 
+                {
+                    search = search + {'callInfo.number':search.search.callInfo};
+                    delete search.search.callInfo;
+                }
             if (search.$and)
                 delete search.$and;
             if (search.timeStamp)
