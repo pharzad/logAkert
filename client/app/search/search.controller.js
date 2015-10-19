@@ -78,7 +78,7 @@ angular.module('portOfAdvsApp')
                     delete search.webSocket.duration;
 
                 console.log(search);
-                httpServices.search($scope.search).then(function (res) {
+                httpServices.search(search).then(function (res) {
 
                     if (res.status === 201 || res.status === 200) {
                         $scope.searchResult = res.data;
