@@ -22,7 +22,7 @@ angular.module('portOfAdvsApp')
                 return def.promise();
             }
         };
-
-        return object;
+    
         dropDownLoader();
+        return object;
     });

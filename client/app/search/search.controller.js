@@ -9,6 +9,7 @@ angular.module('portOfAdvsApp')
         $scope.search.callInfo = {};
 
         dropDown.getDropDowns().then(function (drop) {
+            console.log(drop);
             $scope.dropdown = drop;
         });
 
