@@ -6,8 +6,6 @@ angular.module('portOfAdvsApp')
         $scope.searchResult = [];
         $scope.search = {};
         $scope.search.agent = {};
-        $scope.search.webSocket = {};
-        $scope.search.callInfo = {};
 
         dropDown.getDropDowns().then(function (drop) {
             console.log(drop);
