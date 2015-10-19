@@ -24,17 +24,17 @@ angular.module('portOfAdvsApp')
             if (search.webSocket === null)
                 delete search.webSocket;
             if (search.name === null)
-                delete search.agent.name;
+                delete search.name;
             else
                 {
-                    search = search + {'agent.name':search.agent.name};
+                    search = search + {'agent.name':search.name};
                     delete search.agent.name;
                 }
             if (search.number === null)
                 delete search.callInfo;
             else 
                 {
-                    search = search + {'callInfo.number':search.search.callInfo};
+                    search = search + {'callInfo.number':search.number};
                     delete search.callInfo;
                 }
             if (search.$and)
