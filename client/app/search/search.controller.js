@@ -41,7 +41,6 @@ angular.module('portOfAdvsApp')
                     search.webSocket.duration = {
                         $gte: search.webSocket.duration
                     };
-
                 if (search.date) {
                     if ((search.date.from && search.date.to) && (search.date.from !== '' && search.date.to !== '')) {
                         search.$and = [{
