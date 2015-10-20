@@ -14,7 +14,7 @@ angular.module('portOfAdvsApp')
         $scope.goSearch = function () {
 
             var search = angular.copy($scope.search);
-            var stringSeach = '{';
+            var stringSeach = '';
             console.log(search);
 
             if (search.freeSwitchAddress)
@@ -60,7 +60,6 @@ angular.module('portOfAdvsApp')
                 var tmpLast = stringSeach.charAt(stringSeach.length - 1);
                 if(tmpLast===',')
                 stringSeach = stringSeach.slice(0,stringSeach.length - 1);
-                stringSeach = stringSeach + '}';
                 httpServices.search(stringSeach).then(function (res) {
 
                     if (res.status === 201 || res.status === 200) {
