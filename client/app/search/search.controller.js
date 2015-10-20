@@ -33,9 +33,9 @@ angular.module('portOfAdvsApp')
                 if ((search.date.from && search.date.to) && (search.date.from !== '' && search.date.to !== '')) {
                     stringSeach = stringSeach + '"$and":[{"timeStamp" : { "$gte":"' + new Date(search.date.from).toUTCString() + '"}},{"timeStamp" : { "$lte":"' + new Date(search.date.from).toUTCString() + '"}}]';
                 } else if (search.date.from && search.date.from !== '') {
-                    stringSeach = stringSeach + '"timeStamp" : { "$gte":"' + new Date(search.date.from).toUTCString() + '"}';
+                    stringSeach = stringSeach + '"timeStamp" : { "$gte":"' + new Date(search.date.from).toUTCString() + '"},';
                 } else if (search.date.to && search.date.to !== '') {
-                    stringSeach = stringSeach + '"timeStamp" : { "$lte":"' + new Date(search.date.to).toUTCString() + '"}';
+                    stringSeach = stringSeach + '"timeStamp" : { "$lte":"' + new Date(search.date.to).toUTCString() + '"},';
                 }
             }
             if (tmpLast === ',') {
