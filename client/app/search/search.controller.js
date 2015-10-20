@@ -18,15 +18,15 @@ angular.module('portOfAdvsApp')
             console.log(search);
 
             if (search.freeSwitchAddress)
-                stringSeach = stringSeach + '{"freeSwitchAddress":"' + search.freeSwitchAddress + '"},';
+                stringSeach = stringSeach + '{"freeSwitchAddress":"' + search.freeSwitchAddress + '"}';
             if (search.logTypes)
-                stringSeach = stringSeach + '{"logTypes":"' + search.logTypes + '"},';
+                stringSeach = stringSeach + '{"logTypes":"' + search.logTypes + '"}';
             if (search.webSocket)
-                stringSeach = stringSeach + '{"webSocket.duration":"' + search.webSocket + '"},';
+                stringSeach = stringSeach + '{"webSocket.duration":"' + search.webSocket + '"}';
             if (search.name)
-                stringSeach = stringSeach + '{"agent.name":"' + search.name + '"},';
+                stringSeach = stringSeach + '{"agent.name":"' + search.name + '"}';
             if (search.number === null)
-                stringSeach = stringSeach + '{"callInfo.number":"' + search.number + '"},';
+                stringSeach = stringSeach + '{"callInfo.number":"' + search.number + '"}';
             if (typeof $scope.search !== 'undefined') {
                 if (search.webSocket)
                     search.webSocket.duration = {
