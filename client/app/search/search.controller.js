@@ -21,22 +21,18 @@ angular.module('portOfAdvsApp')
                 stringSeach = stringSeach + '"freeSwitchAddress":"' + search.freeSwitchAddress + '",';
             if (search.logTypes)
                 stringSeach = stringSeach + '"logType":"' + search.logTypes + '",';
-            if (search.webSocket)
-                stringSeach = stringSeach + '"webSocket.duration":"' + search.webSocket + '",';
             if (search.name)
                 stringSeach = stringSeach + '"agent.name":"' + search.name + '",';
             if (search.number === null)
                 stringSeach = stringSeach + '"callInfo.number":"' + search.number + '",';
-            var tmpLast = stringSeach.charAt(stringSeach.length - 1);
-            if (tmpLast === ',') {
-                stringSeach = stringSeach.slice(0, stringSeach.length - 1);
-                stringSeach = stringSeach + '}';
-            }
             if (typeof $scope.search !== 'undefined') {
                 if (search.webSocket)
-                    search.webSocket.duration = {
-                        $gte: search.webSocket.duration
-                    };
+                  stringSeach = stringSeach +  '"webSocket.duration" = { $gte:'+ search.webSocket.duration+'}';
+                var tmpLast = stringSeach.charAt(stringSeach.length - 1);
+                if (tmpLast === ',') {
+                    stringSeach = stringSeach.slice(0, stringSeach.length - 1);
+                    stringSeach = stringSeach + '}';
+                }
                 if (search.date) {
                     if ((search.date.from && search.date.to) && (search.date.from !== '' && search.date.to !== '')) {
                         search.$and = [{
