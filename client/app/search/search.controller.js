@@ -18,15 +18,20 @@ angular.module('portOfAdvsApp')
             console.log(search);
 
             if (search.freeSwitchAddress)
-                stringSeach = stringSeach + '{"freeSwitchAddress":"' + search.freeSwitchAddress + '"}';
+                stringSeach = stringSeach + '{"freeSwitchAddress":"' + search.freeSwitchAddress + '",';
             if (search.logTypes)
-                stringSeach = stringSeach + '{"logTypes":"' + search.logTypes + '"}';
+                stringSeach = stringSeach + '{"logTypes":"' + search.logTypes + '",';
             if (search.webSocket)
-                stringSeach = stringSeach + '{"webSocket.duration":"' + search.webSocket + '"}';
+                stringSeach = stringSeach + '{"webSocket.duration":"' + search.webSocket + '",';
             if (search.name)
-                stringSeach = stringSeach + '{"agent.name":"' + search.name + '"}';
+                stringSeach = stringSeach + '{"agent.name":"' + search.name + '",';
             if (search.number === null)
-                stringSeach = stringSeach + '{"callInfo.number":"' + search.number + '"}';
+                stringSeach = stringSeach + '{"callInfo.number":"' + search.number + '",';
+            var tmpLast = stringSeach.charAt(stringSeach.length - 1);
+            if (tmpLast === ',') {
+                stringSeach = stringSeach.slice(0, stringSeach.length - 1);
+                stringSeach = stringSeach + '}';
+            }
             if (typeof $scope.search !== 'undefined') {
                 if (search.webSocket)
                     search.webSocket.duration = {
@@ -57,9 +62,6 @@ angular.module('portOfAdvsApp')
 
                 console.log(stringSeach);
 
-                var tmpLast = stringSeach.charAt(stringSeach.length - 1);
-                if(tmpLast===',')
-                stringSeach = stringSeach.slice(0,stringSeach.length - 1);
                 httpServices.search(stringSeach).then(function (res) {
 
                     if (res.status === 201 || res.status === 200) {
