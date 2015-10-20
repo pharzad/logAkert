@@ -25,6 +25,12 @@ angular.module('portOfAdvsApp')
                 stringSeach = stringSeach + '"agent.name":"' + search.name + '",';
             if (search.number === null)
                 stringSeach = stringSeach + '"callInfo.number":"' + search.number + '",';
+            if (search.date.from && search.date.from !== '') {
+                stringSeach = stringSeach + '"timeStamp" : { "$gte":' + search.date.from+ '}';
+            }
+            if (search.date.to && search.date.to !== '') {
+                stringSeach = stringSeach + '"timeStamp" : { "$lte":' + search.date.to+ '}';
+            }
             if (typeof $scope.search !== 'undefined') {
                 if (search.duration)
                     stringSeach = stringSeach + '"webSocket.duration" : { "$gte":' + search.duration + '}';
@@ -35,25 +41,11 @@ angular.module('portOfAdvsApp')
                 stringSeach = stringSeach + '}';
                 if (search.date) {
                     if ((search.date.from && search.date.to) && (search.date.from !== '' && search.date.to !== '')) {
-                        search.$and = [{
-                            timeStamp: {
-                                $gte: search.date.from
-                            }
-                                    }, {
-                            timeStamp: {
-                                $lte: search.date.to
-                            }
-                                    }];
-                    } else if (search.date.from && search.date.from !== '') {
-                        search.timeStamp = {
-                            $gte: search.date.from
-                        };
-                    } else if (search.date.to && search.date.to !== '') {
-                        search.timeStamp = {
-                            $lte: search.date.to
-                        };
+                        stringSeach = '{"$and":[' + stringSeach + ',';
+                        var dateQuery = '';
+                        dateQuery = '"timeStamp": {"$gte":' + search.date.from + '}}, {"timeStamp": {"$lte": ' + search.date.to + '}';
+                        stringSeach = stringSeach + dateQuery + ']}';
                     }
-                    delete search.date;
                 }
 
                 console.log(stringSeach);
