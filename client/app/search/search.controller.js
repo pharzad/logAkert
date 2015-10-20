@@ -27,8 +27,6 @@ angular.module('portOfAdvsApp')
                 stringSeach = stringSeach + '"callInfo.number":"' + search.number + '",';
             if (search.duration)
                 stringSeach = stringSeach + '"webSocket.duration" : { "$gte":' + search.duration + '}';
-            var tmpLast = stringSeach.charAt(stringSeach.length - 1);
-
             if (search.date) {
                 if ((search.date.from && search.date.to) && (search.date.from !== '' && search.date.to !== '')) {
                     stringSeach = stringSeach + '"$and":[{"timeStamp" : { "$gte":"' + new Date(search.date.from).toUTCString() + '"}},{"timeStamp" : { "$lte":"' + new Date(search.date.from).toUTCString() + '"}}]';
@@ -38,6 +36,7 @@ angular.module('portOfAdvsApp')
                     stringSeach = stringSeach + '"timeStamp" : { "$lte":"' + new Date(search.date.to).toUTCString() + '"},';
                 }
             }
+            var tmpLast = stringSeach.charAt(stringSeach.length - 1);
             if (tmpLast === ',') {
                 stringSeach = stringSeach.slice(0, stringSeach.length - 1);
             }
