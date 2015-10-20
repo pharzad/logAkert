@@ -59,7 +59,7 @@ angular.module('portOfAdvsApp')
 
                 var tmpLast = stringSeach.charAt(stringSeach.length - 1);
                 if(tmpLast===',')
-                stringSeach = stringSeach.slice(0,stringSeach.length - 2);
+                stringSeach = stringSeach.slice(0,stringSeach.length - 1);
                 httpServices.search(stringSeach).then(function (res) {
 
                     if (res.status === 201 || res.status === 200) {
