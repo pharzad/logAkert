@@ -25,16 +25,16 @@ angular.module('portOfAdvsApp')
                 stringSeach = stringSeach + '"agent.name":"' + search.name + '",';
             if (search.number === null)
                 stringSeach = stringSeach + '"callInfo.number":"' + search.number + '",';
-//            if (search.date) {
-//                if ((search.date.from && search.date.to) && (search.date.from !== '' && search.date.to !== '')) {
-//                    if (search.date.from && search.date.from !== '') {
-//                        stringSeach = stringSeach + '"timeStamp" : { "$gte":"' + new Date(search.date.from).toUTCString() + '"}';
-//                    }
-//                    if (search.date.to && search.date.to !== '') {
-//                        stringSeach = stringSeach + '"timeStamp" : { "$lte":"' + new Date(search.date.to).toUTCString() + '"}';
-//                    }
-//                }
-//            }
+            if (search.date) {
+                if ((search.date.from && search.date.to) && (search.date.from !== '' && search.date.to !== '')) {
+                    if (search.date.from && search.date.from !== '') {
+                        stringSeach = stringSeach + '"timeStamp" : { "$gte":"' + new Date(search.date.from).toUTCString() + '"}';
+                    }
+                    if (search.date.to && search.date.to !== '') {
+                        stringSeach = stringSeach + '"timeStamp" : { "$lte":"' + new Date(search.date.to).toUTCString() + '"}';
+                    }
+                }
+            }
             if (typeof $scope.search !== 'undefined') {
                 if (search.duration)
                     stringSeach = stringSeach + '"webSocket.duration" : { "$gte":' + search.duration + '}';
@@ -43,14 +43,14 @@ angular.module('portOfAdvsApp')
                     stringSeach = stringSeach.slice(0, stringSeach.length - 1);
                 }
                 stringSeach = stringSeach + '}';
-                if (search.date) {
-                    if ((search.date.from && search.date.to) && (search.date.from !== '' && search.date.to !== '')) {
-                        stringSeach = '{"$and":[' + stringSeach + ',';
-                        var dateQuery = '';
-                        dateQuery = '"timeStamp": {"$gte":' + search.date.from + '}}, {"timeStamp": {"$lte": ' + search.date.to + '}';
-                        stringSeach = stringSeach + dateQuery + ']}';
-                    }
-                }
+//                if (search.date) {
+//                    if ((search.date.from && search.date.to) && (search.date.from !== '' && search.date.to !== '')) {
+//                        stringSeach = '{"$and":[' + stringSeach + ',';
+//                        var dateQuery = '';
+//                        dateQuery = '"timeStamp": {"$gte":' + search.date.from + '}}, {"timeStamp": {"$lte": ' + search.date.to + '}';
+//                        stringSeach = stringSeach + dateQuery + ']}';
+//                    }
+//                }
 
                 console.log(stringSeach);
                 httpServices.search(stringSeach).then(function (res) {
