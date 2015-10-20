@@ -51,7 +51,6 @@ angular.module('portOfAdvsApp')
                 }
 
                 console.log(stringSeach);
-
                 httpServices.search(stringSeach).then(function (res) {
 
                     if (res.status === 201 || res.status === 200) {
