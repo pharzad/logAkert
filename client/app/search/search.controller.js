@@ -20,7 +20,7 @@ angular.module('portOfAdvsApp')
             if (search.freeSwitchAddress)
                 stringSeach = stringSeach + '"freeSwitchAddress":"' + search.freeSwitchAddress + '",';
             if (search.logTypes)
-                stringSeach = stringSeach + '"logTypes":"' + search.logTypes + '",';
+                stringSeach = stringSeach + '"logType":"' + search.logTypes + '",';
             if (search.webSocket)
                 stringSeach = stringSeach + '"webSocket.duration":"' + search.webSocket + '",';
             if (search.name)
