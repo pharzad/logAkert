@@ -26,8 +26,8 @@ angular.module('portOfAdvsApp')
             if (search.number === null)
                 stringSeach = stringSeach + '"callInfo.number":"' + search.number + '",';
             if (typeof $scope.search !== 'undefined') {
-                if (search.webSocket)
-                  stringSeach = stringSeach +  '"webSocket.duration" = { $gte:'+ search.webSocket.duration+'}';
+                if (search.duration)
+                  stringSeach = stringSeach +  '"webSocket.duration" = { $gte:'+ search.duration+'}';
                 var tmpLast = stringSeach.charAt(stringSeach.length - 1);
                 if (tmpLast === ',') {
                     stringSeach = stringSeach.slice(0, stringSeach.length - 1);
