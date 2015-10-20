@@ -14,36 +14,19 @@ angular.module('portOfAdvsApp')
         $scope.goSearch = function () {
 
             var search = angular.copy($scope.search);
-            var stringSeach ='';
+            var stringSeach = '{';
             console.log(search);
 
             if (search.freeSwitchAddress)
-                stringSeach += JSON.stringify(search.freeSwitchAddress);
+                stringSeach = stringSeach + '{"freeSwitchAddress":"' + search.freeSwitchAddress + '"},';
             if (search.logTypes)
-                stringSeach += JSON.stringify(search.logTypes);
+                stringSeach = stringSeach + '{"logTypes":"' + search.logTypes + '"},';
             if (search.webSocket)
-                stringSeach += JSON.stringify(search.webSocket);
+                 stringSeach = stringSeach + '{"webSocket.duration":"' + search.webSocket + '"},';
             if (search.name)
-                delete search.name;
-            else {
-                search = search + {
-                    'agent.name': search.name
-                };
-                delete search.name;
-            }
+                stringSeach = stringSeach + '{"agent.name":"' + search.name + '"},';
             if (search.number === null)
-                delete search.callInfo;
-            else {
-                search = search + {
-                    'callInfo.number': search.number
-                };
-                delete search.callInfo;
-            }
-            if (search.$and)
-                delete search.$and;
-            if (search.timeStamp)
-                delete search.timeStamp;
-
+                stringSeach = stringSeach + '{"callInfo.number":"' + search.number + '"},';
             if (typeof $scope.search !== 'undefined') {
                 if (search.webSocket)
                     search.webSocket.duration = {
