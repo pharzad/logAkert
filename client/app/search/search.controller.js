@@ -22,7 +22,7 @@ angular.module('portOfAdvsApp')
             if (search.logTypes)
                 stringSeach = stringSeach + '{"logTypes":"' + search.logTypes + '"},';
             if (search.webSocket)
-                 stringSeach = stringSeach + '{"webSocket.duration":"' + search.webSocket + '"},';
+                stringSeach = stringSeach + '{"webSocket.duration":"' + search.webSocket + '"},';
             if (search.name)
                 stringSeach = stringSeach + '{"agent.name":"' + search.name + '"},';
             if (search.number === null)
@@ -55,7 +55,12 @@ angular.module('portOfAdvsApp')
                     delete search.date;
                 }
 
-                console.log(search);
+                console.log(stringSeach);
+
+                var tmpLast = stringSeach.charAt(stringSeach.length - 1);
+                if(tmpLast===',')
+                stringSeach = stringSeach.slice(0,stringSeach.length - 2);
+                stringSeach = stringSeach + '}';
                 httpServices.search(stringSeach).then(function (res) {
 
                     if (res.status === 201 || res.status === 200) {
