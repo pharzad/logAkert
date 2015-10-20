@@ -29,7 +29,7 @@ angular.module('portOfAdvsApp')
                 stringSeach = stringSeach + '"webSocket.duration" : { "$gte":' + search.duration + '}';
             if (search.date) {
                 if ((search.date.from && search.date.to) && (search.date.from !== '' && search.date.to !== '')) {
-                    stringSeach = stringSeach + '"$and":[{"timeStamp" : { "$gte":"' + new Date(search.date.from).toUTCString() + '"}},{"timeStamp" : { "$lte":"' + new Date(search.date.from).toUTCString() + '"}}]';
+                    stringSeach = stringSeach + '"$and":[{"timeStamp" : { "$gte":"' + new Date(search.date.from).toUTCString() + '"}},{"timeStamp" : { "$lte":"' + new Date(search.date.to).toUTCString() + '"}}]';
                 } else if (search.date.from && search.date.from !== '') {
                     stringSeach = stringSeach + '"timeStamp" : { "$gte":"' + new Date(search.date.from).toUTCString() + '"},';
                 } else if (search.date.to && search.date.to !== '') {
