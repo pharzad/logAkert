@@ -24,12 +24,10 @@
  * App-wide Styles
  */
 
-.navbar-default .navbar-nav > li > a
-{
+.navbar-default .navbar-nav > li > a {
     color: #F4F4F4;
 }
-.navbar-default
-{
+.navbar-default {
     background-color: darkcyan;
     color: #F4F4F4;
 }
@@ -56,4 +54,7 @@ p {
 }
 .panel-body > p:nth-child(even) {
     background: aliceblue;
+}
+.panel-body > p {
+    overflow-wrap: break-word;
 }
