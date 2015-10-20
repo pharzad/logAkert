@@ -26,7 +26,7 @@ angular.module('portOfAdvsApp')
             if (search.number === null)
                 stringSeach = stringSeach + '"callInfo.number":"' + search.number + '",';
             if (search.duration)
-                stringSeach = stringSeach + '"webSocket.duration" : { "$gte":' + search.duration + '}';
+                stringSeach = stringSeach + '"webSocket.duration" : { "$gte":' + search.duration + '},';
             if (search.date) {
                 if ((search.date.from && search.date.to) && (search.date.from !== '' && search.date.to !== '')) {
                     stringSeach = stringSeach + '"$and":[{"timeStamp" : { "$gte":"' + new Date(search.date.from).toUTCString() + '"}},{"timeStamp" : { "$lte":"' + new Date(search.date.to).toUTCString() + '"}}]';
