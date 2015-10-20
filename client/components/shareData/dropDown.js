@@ -19,7 +19,7 @@ angular.module('portOfAdvsApp')
                 return dropDownLoader();
             } else {
                 def.resolve(dropDown);
-                return def.promise();
+                return def.promise;
             }
         };
     
