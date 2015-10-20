@@ -51,7 +51,7 @@ angular.module('portOfAdvsApp')
             //                }
 
             console.log(stringSeach);
-            httpServices.search(stringSeach).then(function (res) {
+            httpServices.search(JSON.stringify(stringSeach)).then(function (res) {
 
                 if (res.status === 201 || res.status === 200) {
                     $scope.searchResult = res.data;
