@@ -27,12 +27,12 @@ angular.module('portOfAdvsApp')
                 stringSeach = stringSeach + '"callInfo.number":"' + search.number + '",';
             if (typeof $scope.search !== 'undefined') {
                 if (search.duration)
-                  stringSeach = stringSeach +  '"webSocket.duration" : { "$gte":'+ search.duration+'}';
+                    stringSeach = stringSeach + '"webSocket.duration" : { "$gte":' + search.duration + '}';
                 var tmpLast = stringSeach.charAt(stringSeach.length - 1);
                 if (tmpLast === ',') {
                     stringSeach = stringSeach.slice(0, stringSeach.length - 1);
-                    stringSeach = stringSeach + '}';
                 }
+                stringSeach = stringSeach + '}';
                 if (search.date) {
                     if ((search.date.from && search.date.to) && (search.date.from !== '' && search.date.to !== '')) {
                         search.$and = [{
