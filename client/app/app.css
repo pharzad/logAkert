@@ -57,4 +57,7 @@ p {
 }
 .panel-body > p {
     overflow-wrap: break-word;
+    white-space: pre-wrap;
+    overflow: scroll;
+    max-height: 200px;
 }
