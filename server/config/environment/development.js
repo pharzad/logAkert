@@ -5,7 +5,7 @@
 module.exports = {
   // MongoDB connection options
   mongo: {
-    uri: 'mongodb://localhost/logalert-dev'
+    uri: 'mongodb://localhost/logalertDB'
   },
 
   seedDB: true
