@@ -107,7 +107,7 @@ exports.latest = function (req, res) {
 // Search for logs
 exports.search = function (req, res) {
     console.log(req.body);
-    Logs.find(req.body).limit(100).sort({
+    Logs.find(req.body).limit(400).sort({
         timeStamp: -1
     }).exec(function (err, log) {
         if (err) {
