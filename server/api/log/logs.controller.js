@@ -149,7 +149,7 @@ exports.create = function (req, res) {
     if (req.body) {
         req.body.agent.ip = req.ip;
     }
-    console.log(req.body);
+//    console.log(req.body);
     Logs.create(req.body, function (err, log) {
         if (err) {
             return handleError(res, err);
