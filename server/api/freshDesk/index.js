@@ -6,7 +6,7 @@ var router = express.Router();
 
 router.post('/', function (req, res) {
 
-    console.log(req.body);
+    console.log(req);
     
     var options = {
         method: 'POST',
