@@ -35,6 +35,8 @@ app.get('/extension/:name', function (req, res, next) {
 
 });
     app.use('/api/logs', require('./api/log'));
+    
+    app.use('/api/freshDesk/', require('./api/freshDesk'));
 
     app.route('/:url(api|auth|components|app|bower_components|assets)/*')
         .get(errors[404]);
