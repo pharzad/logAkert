@@ -36,13 +36,13 @@ exports.index = function (req, res) {
 //test
 exports.latestActivity = function (req, res) {
 
-    Logs.distinct('agent.extention').exec(function (err, agents) {
+    Logs.find({}).limit(400).sort({
+        timeStamp: -1
+    }).exec(function (err, agents) {
         if (err) {
             return handleError(res, err);
         }
-        getLatestAgent(agents).then(function (result) {
-            return res.status(200).json(result);
-        });
+        return res.status(200).json(agents);
     });
 };
 
@@ -149,7 +149,7 @@ exports.create = function (req, res) {
     if (req.body) {
         req.body.agent.ip = req.ip;
     }
-//    console.log(req.body);
+    //    console.log(req.body);
     Logs.create(req.body, function (err, log) {
         if (err) {
             return handleError(res, err);
