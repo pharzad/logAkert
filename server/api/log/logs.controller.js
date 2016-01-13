@@ -88,7 +88,7 @@ exports.latest = function (req, res) {
         }
     }, {
         $group: {
-            _id: '$agent.extension',
+            _id: '$agent.extention',
             latetStatus: {
                 $first: '$status.newStatus'
             },
