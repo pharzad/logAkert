@@ -30,9 +30,6 @@ angular.module('portOfAdvsApp')
         $scope.menu = [{
             'title': 'Agents Status',
             'link': '/'
-    }, {
-            'title': 'Latest Logs',
-            'link': '/latestLogs'
     }];
 
         $scope.isCollapsed = true;
