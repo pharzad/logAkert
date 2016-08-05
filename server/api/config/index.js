@@ -9,7 +9,8 @@ router.get('/', function (req, res) {
         ping: {
             status: true,
             interval: 1000
-        }
+        },
+        pingTime: 1000
     });
 });
 
