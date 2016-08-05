@@ -5,8 +5,11 @@ var express = require('express');
 var router = express.Router();
 
 router.get('/', function (req, res) {
-    res.json ({
-        pingTime: 1000
+    res.json({
+        ping: {
+            status: true,
+            interval: 1000
+        }
     });
 });
 
