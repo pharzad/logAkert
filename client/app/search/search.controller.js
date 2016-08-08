@@ -15,7 +15,6 @@ angular.module('portOfAdvsApp')
 
             var search = angular.copy($scope.search);
             var stringSeach = '{';
-            console.log(search);
 
             if (search.freeSwitchAddress)
                 stringSeach = stringSeach + '"freeSwitchAddress":"' + search.freeSwitchAddress + '",';
@@ -40,8 +39,9 @@ angular.module('portOfAdvsApp')
             if (tmpLast === ',') {
                 stringSeach = stringSeach.slice(0, stringSeach.length - 1);
             }
-            stringSeach = stringSeach + '"webSocket.webSocketFunction":{ $not: { $eq: "KEEP_ALIVE" } }'
+            stringSeach = stringSeach + '"webSocket.webSocketFunction":{ $not: { $eq: "KEEP_ALIVE" } }';
             stringSeach = stringSeach + '}';
+            console.log(stringSeach);
             //                if (search.date) {
             //                    if ((search.date.from && search.date.to) && (search.date.from !== '' && search.date.to !== '')) {
             //                        stringSeach = '{"$and":[' + stringSeach + ',';
