@@ -10,6 +10,10 @@ router.get('/', function (req, res) {
             status: true,
             interval: 1000
         },
+        forceOffile:{
+            refresh:false,
+            force:false
+        }
         pingTime: 1000
     });
 });
