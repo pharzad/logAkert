@@ -39,6 +39,10 @@ angular.module('portOfAdvsApp')
             if (tmpLast === ',') {
                 stringSeach = stringSeach.slice(0, stringSeach.length - 1);
             }
+
+            if (stringSeach !== '{')
+                stringSeach = stringSeach + ','
+
             stringSeach = stringSeach + '"webSocket.webSocketFunction":{ $not: { $eq: "KEEP_ALIVE" } }';
             stringSeach = stringSeach + '}';
             console.log(stringSeach);
@@ -51,7 +55,7 @@ angular.module('portOfAdvsApp')
             //                    }
             //                }
 
-           var tmp =  JSON.parse(stringSeach);
+            var tmp = JSON.parse(stringSeach);
             httpServices.search(tmp).then(function (res) {
                 if (res.status === 201 || res.status === 200) {
                     $scope.searchResult = res.data;
