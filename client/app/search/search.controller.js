@@ -43,7 +43,7 @@ angular.module('portOfAdvsApp')
             if (stringSeach !== '{')
                 stringSeach = stringSeach + ','
 
-            stringSeach = stringSeach + '"webSocket.webSocketFunction":{ $not: { $eq: "KEEP_ALIVE" } }';
+            stringSeach = stringSeach + '"webSocket.webSocketFunction":{ "$not": { "$eq": "KEEP_ALIVE" } }';
             stringSeach = stringSeach + '}';
             console.log(stringSeach);
             //                if (search.date) {
