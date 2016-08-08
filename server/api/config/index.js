@@ -13,7 +13,7 @@ router.get('/', function (req, res) {
         forceOffile:{
             refresh:false,
             force:false
-        }
+        },
         pingTime: 1000
     });
 });
