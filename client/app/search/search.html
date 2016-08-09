@@ -30,8 +30,11 @@
             <input type="text" ng-model="search.duration" class="form-control" placeholder="Min Websocket Duration">
         </div>
         <div class="form-group">
-            <label>
-                <input type="checkbox" ng-model="search.ping" class="form-control">:Include Pings?</label>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" ng-model="search.ping">Include Pings?
+                </label>
+            </div>
         </div>
         <button type="submit" class="btn btn-default" ng-click="goSearch()">Search</button>
     </form>
