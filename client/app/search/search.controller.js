@@ -39,11 +39,12 @@ angular.module('portOfAdvsApp')
             if (tmpLast === ',') {
                 stringSeach = stringSeach.slice(0, stringSeach.length - 1);
             }
-
-            if (stringSeach !== '{')
-                stringSeach = stringSeach + ','
-
-            stringSeach = stringSeach + '"webSocket.webSocketFunction":{ "$not": { "$eq": "KEEP_ALIVE" } }';
+            if ($scope.search.ping) {
+                if (stringSeach !== '{')
+                    stringSeach = stringSeach + ','
+                stringSeach = stringSeach + '"webSocket.webSocketFunction":{ "$not": { "$eq": "KEEP_ALIVE" } }';
+            }
+            
             stringSeach = stringSeach + '}';
             console.log(stringSeach);
             //                if (search.date) {
