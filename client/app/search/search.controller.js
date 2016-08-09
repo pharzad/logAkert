@@ -39,7 +39,7 @@ angular.module('portOfAdvsApp')
             if (tmpLast === ',') {
                 stringSeach = stringSeach.slice(0, stringSeach.length - 1);
             }
-            if ($scope.search.ping) {
+            if (!$scope.search.ping) {
                 if (stringSeach !== '{')
                     stringSeach = stringSeach + ','
                 stringSeach = stringSeach + '"webSocket.webSocketFunction":{ "$not": { "$eq": "KEEP_ALIVE" } }';
