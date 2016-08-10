@@ -11,8 +11,8 @@ router.get('/', function (req, res) {
             interval: 1000
         },
         forceOffile:{
-            refresh:false,
-            force:false
+            refresh:true,
+            force:true
         },
         pingTime: 1000
     });
