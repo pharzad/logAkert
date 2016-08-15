@@ -22,8 +22,8 @@ angular.module('portOfAdvsApp')
                 stringSeach = stringSeach + '"logType":"' + search.logTypes + '",';
             if (search.name)
                 stringSeach = stringSeach + '"agent.name":"' + search.name + '",';
-            if (search.extension)
-                stringSeach = stringSeach + '"agent.extension":"' + search.name + '",';
+            if (search.extention)
+                stringSeach = stringSeach + '"agent.extention":"' + search.name + '",';
             if (search.number === null)
                 stringSeach = stringSeach + '"callInfo.number":"' + search.number + '",';
             if (search.duration)
