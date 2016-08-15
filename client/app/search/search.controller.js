@@ -22,6 +22,8 @@ angular.module('portOfAdvsApp')
                 stringSeach = stringSeach + '"logType":"' + search.logTypes + '",';
             if (search.name)
                 stringSeach = stringSeach + '"agent.name":"' + search.name + '",';
+            if (search.extension)
+                stringSeach = stringSeach + '"agent.extension":"' + search.name + '",';
             if (search.number === null)
                 stringSeach = stringSeach + '"callInfo.number":"' + search.number + '",';
             if (search.duration)
@@ -44,7 +46,7 @@ angular.module('portOfAdvsApp')
                     stringSeach = stringSeach + ','
                 stringSeach = stringSeach + '"webSocket.webSocketFunction":{ "$not": { "$eq": "KEEP_ALIVE" } }';
             }
-            
+
             stringSeach = stringSeach + '}';
             console.log(stringSeach);
             //                if (search.date) {
