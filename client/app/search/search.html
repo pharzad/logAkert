@@ -39,9 +39,9 @@
     <div class="panel panel-primary agentContainer" ng-repeat="agent in searchResult">
         <div class="panel-heading">{{agent.agent.name}}</div>
         <div class="panel-body">
-            <p ng-hide="agent.extention==undefined||agent.extention == ''">Extension:{{agent.agent.extention}}</p>
-            <p ng-hide="agent.ip==undefined||agent.ip == ''">ip:{{agent.agent.ip}}</p>
-            <p ng-hide="agent.logType==undefined||agent.agentExtension == ''">Log Type:{{agent.logType}} </p>
+            <p ng-hide="agent.agent.extention==undefined||agent.agent.extention == ''">Extension:{{agent.agent.extention}}</p>
+            <p ng-hide="agent.agent.ip==undefined||agent.agent.ip == ''">ip:{{agent.agent.ip}}</p>
+            <p ng-hide="agent.logType==undefined||agent.logType == ''">Log Type:{{agent.logType}} </p>
             <p ng-hide="agent.error.errorType == undefined||agent.error.errorType == ''">Error:{{agent.error.errorType}} </p>
             <p ng-hide="agent.error.errorMessage == undefined||agent.error.errorMessage == ''">Error detail:{{agent.error.errorMessage}} </p>
             <p ng-hide="agent.callInfo.Calldirection==undefined||agent.callInfo.Calldirection == ''">Direction:{{agent.callInfo.Calldirection}} </p>
