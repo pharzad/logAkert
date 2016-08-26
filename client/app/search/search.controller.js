@@ -16,8 +16,6 @@ angular.module('portOfAdvsApp')
             var search = angular.copy($scope.search);
             var stringSeach = '{';
 
-            if (search.freeSwitchAddress)
-                stringSeach = stringSeach + '"freeSwitchAddress":"' + search.freeSwitchAddress + '",';
             if (search.logTypes)
                 stringSeach = stringSeach + '"logType":"' + search.logTypes + '",';
             if (search.name)
