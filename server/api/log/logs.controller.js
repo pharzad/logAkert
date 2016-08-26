@@ -59,18 +59,12 @@ exports.dropDownFields = function (req, res) {
                 if (err) {
                     return handleError(res, err);
                 }
-                Logs.distinct('freeSwitchAddress').exec(function (err, environment) {
-                    if (err) {
-                        return handleError(res, err);
-                    }
-                    var fields = {
-                        agents: agents,
-                        errors: error,
-                        logTypes: logType,
-                        environments: environment
-                    };
-                    return res.status(200).json(fields);
-                });
+                var fields = {
+                    agents: agents,
+                    errors: error,
+                    logTypes: logType
+                };
+                return res.status(200).json(fields);
             });
         });
     });
