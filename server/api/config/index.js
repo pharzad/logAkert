@@ -14,7 +14,8 @@ router.get('/', function (req, res) {
             refresh:true,
             force:true
         },
-        pingTime: 1000
+        pingTime: 1000,
+        planBInterval:30000
     });
 });
 
