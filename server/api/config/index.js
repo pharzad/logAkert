@@ -7,7 +7,7 @@ var router = express.Router();
 router.get('/', function (req, res) {
     res.json({
         ping: {
-            status: true,
+            status: false,
             interval: 1000
         },
         forceOffile:{
