@@ -8,14 +8,15 @@ router.get('/', function (req, res) {
     res.json({
         ping: {
             status: false,
-            interval: 1000
+            interval: 10000
         },
-        forceOffile:{
-            refresh:true,
-            force:true
+        forceOffile: {
+            refresh: true,
+            force: true
         },
         pingTime: 1000,
-        planBInterval:30000
+        planBInterval: 30000,
+        CallButt: true
     });
 });
 
