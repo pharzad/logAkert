@@ -73,12 +73,12 @@ exports.dropDownFields = function (req, res) {
 //Latest Status
 exports.latest = function (req, res) {
     Logs.aggregate([{
-        $sort: {
-            timeStamp: -1
-        }
-    }, {
         $match: {
             logType: 'statusChanged'
+        }
+    }, {
+        $sort: {
+            timeStamp: -1
         }
     }, {
         $group: {
