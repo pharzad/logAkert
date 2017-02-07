@@ -5,10 +5,10 @@ var controller = require('./drop-down.controller');
 
 var router = express.Router();
 
-router.get('/', (req, res) => {
+router.get('/', function(req, res){
   controller.createDrop((res) => {
     res.json(res);
-  })
+  });
 });
 
 module.exports = router;
