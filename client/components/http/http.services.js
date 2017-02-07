@@ -19,7 +19,7 @@ angular.module('portOfAdvsApp')
         };
 
         http.getDropDowns = function () {
-            return $http.get(server + 'api/logs/dropDownFields');
+            return $http.get(server + 'drop-down');
         };
         return http;
     });
