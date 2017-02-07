@@ -2,7 +2,7 @@ var DropDown = require('./dropDown.model');
 var Logs = require('../log/logs.model');
 
 exports.getDropDown = function(callback) {
-  DropDown.find({}, function(err, result) {
+  DropDown.findOne({}, function(err, result) {
     if (err)
       callback(err);
     callback(result);
