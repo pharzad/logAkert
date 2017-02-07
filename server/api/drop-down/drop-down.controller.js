@@ -1,0 +1,35 @@
+var DropDown = './dropDown.model';
+var Logs = require('../log/logs.model');
+
+
+function createDrop(callback) {
+  Logs.distinct('agent.name').exec(function(err, agents) {
+    if (err) {
+      return handleError(res, err);
+    }
+    Logs.distinct('error.errorType').exec(function(err, error) {
+      if (err) {
+        return handleError(res, err);
+      }
+      Logs.distinct('logType').exec(function(err, logType) {
+        if (err) {
+          return handleError(res, err);
+        }
+        var fields = {
+          agents: agents,
+          errors: error,
+          logTypes: logType
+        };
+        DropDown.remove({}, () => {
+          var newDrop = new DropDown(fields);
+          newDrop.save((err, result) => {
+            if (err)
+              return err;
+            console.log(result)
+            callback(result);
+          });
+        });
+      });
+    });
+  });
+}
