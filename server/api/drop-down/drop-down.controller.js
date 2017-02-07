@@ -9,15 +9,15 @@ exports.getDropDown = function(callback) {
   });
 }
 exports.createDrop = function(callback) {
-  Logs.distinct('agent.name').exec(function(err, agents) {
+  Logs.distinct('agent.name').sort().exec(function(err, agents) {
     if (err) {
       return handleError(res, err);
     }
-    Logs.distinct('error.errorType').exec(function(err, error) {
+    Logs.distinct('error.errorType').sort().exec(function(err, error) {
       if (err) {
         return handleError(res, err);
       }
-      Logs.distinct('logType').exec(function(err, logType) {
+      Logs.distinct('logType').sort().exec(function(err, logType) {
         if (err) {
           return handleError(res, err);
         }
