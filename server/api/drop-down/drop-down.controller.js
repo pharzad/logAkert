@@ -20,9 +20,9 @@ function createDrop(callback) {
           errors: error,
           logTypes: logType
         };
-        DropDown.remove({}, () => {
+        DropDown.remove({}, function(){
           var newDrop = new DropDown(fields);
-          newDrop.save((err, result) => {
+          newDrop.save(function(err, result){
             if (err)
               return err;
             console.log(result)

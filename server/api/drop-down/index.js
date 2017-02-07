@@ -6,7 +6,7 @@ var controller = require('./drop-down.controller');
 var router = express.Router();
 
 router.get('/', function(req, res){
-  controller.createDrop((res) => {
+  controller.createDrop(function (res) {
     res.json(res);
   });
 });
