@@ -1,4 +1,4 @@
-var DropDown = './dropDown.model';
+var DropDown = require('./dropDown.model');
 var Logs = require('../log/logs.model');
 
 exports.createDrop = function(callback) {
