@@ -16,7 +16,7 @@ exports.createDrop = function(callback) {
         }
         var fields = {
           agents: agents,
-          errors: error,
+          errorsTypes: error,
           logTypes: logType
         };
         DropDown.remove({}, function() {

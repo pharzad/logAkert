@@ -5,7 +5,7 @@ var mongoose = require('mongoose'),
 
 var DropDown = new Schema({
   agents: [String],
-  errors: [String],
+  errorsTypes: [String],
   logTypes: [String]
 
 });
