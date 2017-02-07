@@ -1,7 +1,7 @@
 var DropDown = require('./dropDown.model');
 var Logs = require('../log/logs.model');
 
-exports.getDropDown(callback) {
+exports.getDropDown = function(callback) {
   DropDown.find({}, function(err, result) {
     if (err)
       callback(err);
