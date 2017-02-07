@@ -35,7 +35,7 @@ module.exports = function(app) {
   });
   app.use('/api/logs', require('./api/log'));
 
-  app.use('api/drop-down', require('./api/drop-down'));
+  app.use('/drop-down/', require('./api/drop-down'));
 
   app.use('/api/freshDesk/', require('./api/freshDesk'));
 
