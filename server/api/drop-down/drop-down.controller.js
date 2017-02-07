@@ -1,6 +1,13 @@
 var DropDown = require('./dropDown.model');
 var Logs = require('../log/logs.model');
 
+exports.getDropDown(callback) {
+  DropDown.find({}, function(err, result) {
+    if (err)
+      callback(err);
+    callback(result);
+  });
+}
 exports.createDrop = function(callback) {
   Logs.distinct('agent.name').exec(function(err, agents) {
     if (err) {
