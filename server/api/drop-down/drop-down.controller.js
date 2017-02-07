@@ -1,8 +1,7 @@
 var DropDown = './dropDown.model';
 var Logs = require('../log/logs.model');
 
-
-function createDrop(callback) {
+exports.createDrop = function(callback) {
   Logs.distinct('agent.name').exec(function(err, agents) {
     if (err) {
       return handleError(res, err);
@@ -20,9 +19,9 @@ function createDrop(callback) {
           errors: error,
           logTypes: logType
         };
-        DropDown.remove({}, function(){
+        DropDown.remove({}, function() {
           var newDrop = new DropDown(fields);
-          newDrop.save(function(err, result){
+          newDrop.save(function(err, result) {
             if (err)
               return err;
             console.log(result)
