@@ -90,9 +90,7 @@ exports.latest = function(req, res) {
         $first: '$agent.name'
       }
     }
-  }], {
-    allowDiskUse: true
-  }).exec(function(err, stste) {
+  }]).allowDiskUse(true).exec(function(err, stste) {
     if (err) {
       return handleError(res, err);
     }
