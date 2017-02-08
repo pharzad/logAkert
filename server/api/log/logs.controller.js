@@ -91,7 +91,7 @@ exports.latest = function(req, res) {
       }
     }
   }], {
-    "allowDiskUse": true
+    allowDiskUse: true
   }).exec(function(err, stste) {
     if (err) {
       return handleError(res, err);
