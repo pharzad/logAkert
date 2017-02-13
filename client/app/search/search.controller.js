@@ -1,10 +1,12 @@
 'use strict';
 
 angular.module('portOfAdvsApp')
-  .controller('SearchCtrl', function($scope, $http, socket, httpServices, dropDown) {
+  .controller('SearchCtrl', function($scope, $http, $stateParams, socket, httpServices, dropDown) {
 
     $scope.searchResult = [];
     $scope.search = {};
+
+    console.log($stateParams.agent);
 
     dropDown.getDropDowns().then(function(drop) {
       console.log(drop);
