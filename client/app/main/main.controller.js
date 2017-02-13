@@ -7,7 +7,7 @@ angular.module('portOfAdvsApp')
       console.log(agent);
       $state.go(search, {
         agent: agent._id
-      }) l
+      });
     }
     $scope.liveMode = false;
     $scope.agents = {};
