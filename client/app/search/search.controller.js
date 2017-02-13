@@ -8,7 +8,7 @@ angular.module('portOfAdvsApp')
     $scope.goSearch = goSearch;
 
     if ($stateParams.agent) {
-      search.extention = $stateParams.agent;
+      $scope.search.extention = $stateParams.agent;
       goSearch();
     }
 
