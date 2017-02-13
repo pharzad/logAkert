@@ -6,7 +6,11 @@ angular.module('portOfAdvsApp')
     $scope.searchResult = [];
     $scope.search = {};
 
-    console.log($stateParams.agent);
+    if ($stateParams.agent)
+    {
+      search.extention = $stateParams.agent;
+      $scope.goSearch();
+    }
 
     dropDown.getDropDowns().then(function(drop) {
       $scope.dropdown = drop;

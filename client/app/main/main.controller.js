@@ -4,7 +4,6 @@ angular.module('portOfAdvsApp')
   .controller('MainCtrl', function($scope, $http, $state, socket, httpServices, dropDown) {
 
     $scope.selectAgent = function(agent) {
-      console.log(agent);
       $state.go('search', {
         agent: agent._id
       });
