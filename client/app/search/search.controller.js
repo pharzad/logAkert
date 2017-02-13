@@ -6,6 +6,7 @@ angular.module('portOfAdvsApp')
     $scope.searchResult = [];
     $scope.search = {};
     $scope.goSearch = goSearch;
+    $scope.loading = false;
 
     if ($stateParams.agent) {
       $scope.search.extention = $stateParams.agent;
@@ -17,6 +18,7 @@ angular.module('portOfAdvsApp')
     });
 
     function goSearch() {
+      $scope.loading =true;
       var search = angular.copy($scope.search);
       var stringSeach = '{';
 
@@ -57,6 +59,7 @@ angular.module('portOfAdvsApp')
       var tmp = JSON.parse(stringSeach);
       httpServices.search(tmp).then(function(res) {
         if (res.status === 201 || res.status === 200) {
+          $scope.loading = false;
           $scope.searchResult = res.data;
         }
       });
