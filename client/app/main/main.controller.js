@@ -5,7 +5,7 @@ angular.module('portOfAdvsApp')
 
     $scope.selectAgent = function(agent) {
       console.log(agent);
-      $state.go(search, {
+      $state.go('search', {
         agent: agent._id
       });
     }

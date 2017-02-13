@@ -7,7 +7,7 @@ angular.module('portOfAdvsApp')
             'link': '/'
     }, {
             'title': 'Search',
-            'link': '/search'
+            'link': '/search/'
     }];
 
         $scope.isCollapsed = true;
