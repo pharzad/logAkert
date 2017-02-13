@@ -4,7 +4,7 @@ angular.module('portOfAdvsApp')
   .config(function ($stateProvider) {
     $stateProvider
       .state('search', {
-        url: '/search?agent',
+        url: '/search/:agent?',
         templateUrl: 'app/search/search.html',
         controller: 'SearchCtrl'
       });

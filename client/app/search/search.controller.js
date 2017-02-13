@@ -9,7 +9,6 @@ angular.module('portOfAdvsApp')
     console.log($stateParams.agent);
 
     dropDown.getDropDowns().then(function(drop) {
-      console.log(drop);
       $scope.dropdown = drop;
     });
 
