@@ -5,19 +5,18 @@ angular.module('portOfAdvsApp')
 
     $scope.searchResult = [];
     $scope.search = {};
+    $scope.goSearch = goSearch;
 
-    if ($stateParams.agent)
-    {
+    if ($stateParams.agent) {
       search.extention = $stateParams.agent;
-      $scope.goSearch();
+      goSearch();
     }
 
     dropDown.getDropDowns().then(function(drop) {
       $scope.dropdown = drop;
     });
 
-    $scope.goSearch = function() {
-
+    function goSearch() {
       var search = angular.copy($scope.search);
       var stringSeach = '{';
 
@@ -54,35 +53,13 @@ angular.module('portOfAdvsApp')
 
       stringSeach = stringSeach + '}';
       console.log(stringSeach);
-      //                if (search.date) {
-      //                    if ((search.date.from && search.date.to) && (search.date.from !== '' && search.date.to !== '')) {
-      //                        stringSeach = '{"$and":[' + stringSeach + ',';
-      //                        var dateQuery = '';
-      //                        dateQuery = '"timeStamp": {"$gte":' + search.date.from + '}}, {"timeStamp": {"$lte": ' + search.date.to + '}';
-      //                        stringSeach = stringSeach + dateQuery + ']}';
-      //                    }
-      //                }
 
       var tmp = JSON.parse(stringSeach);
       httpServices.search(tmp).then(function(res) {
         if (res.status === 201 || res.status === 200) {
           $scope.searchResult = res.data;
         }
-        console.log(res);
       });
-      //            for (var key in $scope.search) {
-      //                if ($scope.search.hasOwnProperty(key)) {
-      //                    var obj = $scope.search[key];
-      //
-      //                    for (var prop in obj) {
-      //                        // important check that this is objects own property
-      //                        // not from prototype prop inherited
-      //                        if (obj.hasOwnProperty(prop)) {
-      //                            console.log(prop + ' = ' + obj[prop]);
-      //                        }
-      //                    }
-      //                }
-      //            }
     };
 
     socket.socket.on('log:save', function(res) {
