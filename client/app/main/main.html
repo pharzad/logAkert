@@ -23,7 +23,7 @@
     <option value="">Select Environment</option>
 </select>
 <div class="container">
-    <div class="panel panel-primary agentContainer" ng-repeat="agent in agents.status" ng-if="agent.agentName" ng-click="selectAgent(agent)">
+    <div class="panel panel-primary agentContainer" ng-repeat="agent in agents.status| filter:env" ng-if="agent.agentName" ng-click="selectAgent(agent)">
         <div class="panel-heading">{{agent.agentName}}</div>
         <div class="panel-body">
             <p>Status: {{agent.latetStatus}}</p>
