@@ -27,6 +27,7 @@
         <div class="panel-heading">{{agent.agentName}}</div>
         <div class="panel-body">
             <p>Status: {{agent.latetStatus}}</p>
+            <p ng-if="agent.version">Version: {{agent.version}}</p>
         </div>
     </div>
     <div class="panel panel-primary agentContainer" ng-repeat="agent in agents.status| filter:env" ng-hide="agent.agentName">
