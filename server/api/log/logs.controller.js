@@ -96,7 +96,7 @@ exports.latest = function(req, res) {
         $first: '$agent.name'
       },
       version: {
-        $first: '$version'
+        $first: '$agent.version'
       },
       env: {
         $first: '$freeSwitchAddress'
