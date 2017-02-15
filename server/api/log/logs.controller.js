@@ -94,6 +94,12 @@ exports.latest = function(req, res) {
       },
       agentName: {
         $first: '$agent.name'
+      },
+      version: {
+        $first: '$version'
+      },
+      env: {
+        $first: '$freeSwitchAddress'
       }
     }
   }]).allowDiskUse(true).exec(function(err, stste) {
