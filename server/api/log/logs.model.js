@@ -7,7 +7,8 @@ var LogSchema = new Schema({
     agent: {
         name: String,
         ip: String,
-        extention: Number
+        extention: Number,
+        version: String
     },
     callInfo: {
         Calldirection: String,
