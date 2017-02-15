@@ -19,7 +19,7 @@
         </div>
     </div>
 </div>
-<select class="form-control" ng-model="env" ng-options="env as env for env in environments" style="margin: 25px; width: 13%;">
+<select class="form-control" ng-model="env" ng-options="env as env for env in environments" style="margin: 25px; width: 13%;" ng-change="updateEnv(env)">
     <option value="">Select Environment</option>
 </select>
 <div class="container">

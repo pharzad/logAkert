@@ -31,6 +31,11 @@ angular.module('portOfAdvsApp')
       });
     });
 
+    $scope.updateEnv = function (env) {
+      console.log(env);
+      $scope.env = env;
+    }
+
     $scope.changeLog = function(item) {
       $scope.liveLogs = [];
       $scope.agents.status = [];
