@@ -21,18 +21,24 @@ exports.createDrop = function(callback) {
         if (err) {
           return handleError(res, err);
         }
-        var fields = {
-          agents: agents,
-          errorsTypes: error,
-          logTypes: logType
-        };
-        DropDown.remove({}, function() {
-          var newDrop = new DropDown(fields);
-          newDrop.save(function(err, result) {
-            if (err)
-              return err;
-            console.log(result)
-            callback(result);
+        Logs.distinct('freeSwitchAddress').sort().exec(function(err, env) {
+          if (err) {
+            return handleError(res, err);
+          }
+          var fields = {
+            agents: agents,
+            errorsTypes: error,
+            logTypes: logType,
+            env: env
+          };
+          DropDown.remove({}, function() {
+            var newDrop = new DropDown(fields);
+            newDrop.save(function(err, result) {
+              if (err)
+                return err;
+              console.log(result)
+              callback(result);
+            });
           });
         });
       });
