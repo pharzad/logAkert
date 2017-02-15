@@ -140,6 +140,7 @@ exports.count = function(req, res) {
 
 // Creates a new Log in the DB.
 exports.create = function(req, res) {
+  console.log(req.body.agent.version);
   if (req.body) {
     req.body.agent.ip = req.ip;
   }
