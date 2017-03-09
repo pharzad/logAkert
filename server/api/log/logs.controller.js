@@ -80,10 +80,7 @@ exports.uuid = function(req, res) {
   var reg = '/' + req.params.uuid + '/';
   console.log(reg);
   Logs.find({
-    "webSocket.webSocketBody": {
-      $regex: reg,
-      $options: 'i'
-    }
+    "webSocket.webSocketBody": new RegExp(reg, 'i')
   },function(err, result) {
     if (err)
       return res.status(500).json(result);
