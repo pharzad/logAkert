@@ -76,6 +76,22 @@ exports.dropDownFields = function(req, res) {
   });
 };
 
+exports.uuid = function(req, res) {
+  var reg = `/${req.params.uuid}/`;
+  console.log(reg);
+  Logs.find({
+    "webSocket.webSocketBody": {
+      $regex: reg,
+      $options: 'i'
+    }
+  }.function(err, result) {
+    if (err)
+      return res.status(500).json(result);
+
+    res.json(result);
+  })
+}
+
 //Latest Status
 exports.latest = function(req, res) {
   Logs.aggregate([{

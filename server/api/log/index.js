@@ -17,5 +17,6 @@ router.get('/getLatestStatus', controller.latest);
 router.post('/search', controller.search);
 router.get('/count', controller.count);
 router.get('/remove', controller.empty);
+router.get('/uuid/:uuid', controller.uuid);
 
 module.exports = router;
