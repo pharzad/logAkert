@@ -84,7 +84,7 @@ exports.uuid = function(req, res) {
       $regex: reg,
       $options: 'i'
     }
-  }.function(err, result) {
+  },function(err, result) {
     if (err)
       return res.status(500).json(result);
 
