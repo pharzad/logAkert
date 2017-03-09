@@ -77,7 +77,7 @@ exports.dropDownFields = function(req, res) {
 };
 
 exports.uuid = function(req, res) {
-  var reg = `/${req.params.uuid}/`;
+  var reg = '/' + req.params.uuid + '/';
   console.log(reg);
   Logs.find({
     "webSocket.webSocketBody": {
