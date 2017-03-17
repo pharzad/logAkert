@@ -35,6 +35,7 @@ var LogSchema = new Schema({
         newStatus: String,
         statusDuration: Number,
         previewsStatus: String,
+        triggered: String
     },
     logType: String,
     uuId: String,
