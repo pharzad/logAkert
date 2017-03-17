@@ -50,6 +50,7 @@
             <p ng-if="agent.status.previewsStatus">Previews Status: {{agent.status.previewsStatus}} </p>
             <p ng-if="agent.status.triggered">Triggered: {{agent.status.triggered}} </p>
             <p ng-if="agent.freeSwitch.duration">Freeswitch Duration: {{agent.freeSwitch.duration}} </p>
+            <p ng-if="agent.freeSwitch.reason">Freeswitch reason failed: {{agent.freeSwitch.reason}} </p>
             <p ng-if="agent.timeStamp">timeStamp: {{agent.timeStamp| date:'medium': UTC}}</p>
             <p ng-if="agent.ip.agent">Ip: {{agent.agent.ip}} </p>
             <p ng-if="agent.freeSwitchAddress">freeSwitch: {{agent.freeSwitchAddress}} </p>
@@ -78,6 +79,7 @@
             <p ng-hide="agent.status.triggered == undefined||agent.status.triggered == ''">Triggered: {{agent.status.triggered}} </p>
             <p ng-hide="agent.status.previewsStatus==undefined||agent.status.previewsStatus == ''">Previews Status: {{agent.status.previewsStatus}} </p>
             <p ng-hide="agent.freeSwitch.duration==undefined||agent.freeSwitch.duration == ''">Freeswitch Duration: {{agent.freeSwitch.duration}} </p>
+            <p ng-hide="agent.freeSwitch.reason==undefined||agent.freeSwitch.reason == ''">Freeswitch reason: {{agent.freeSwitch.reason}} </p>
             <p ng-hide="agent.timeStamp==undefined||agent.timeStamp == ''">timeStamp: {{agent.timeStamp| date:'medium': UTC}}</p>
             <p ng-hide="agent.ip.agent==undefined||agent.ip.agent == ''">Ip: {{agent.agent.ip}} </p>
             <p ng-hide="agent.freeSwitchAddress==undefined||agent.freeSwitchAddress == ''">freeSwitch: {{agent.freeSwitchAddress}} </p>

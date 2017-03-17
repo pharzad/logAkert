@@ -29,7 +29,8 @@ var LogSchema = new Schema({
     },
     freeSwitch: {
         duration: Number,
-        code: String
+        code: String,
+        reason: String
     },
     status: {
         newStatus: String,
