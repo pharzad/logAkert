@@ -4,7 +4,6 @@ var Conflict = require('./conflict.model');
 var Logs = require('../log/logs.model');
 
 exports.findConflict = function(payload) {
-  console.log(payload.agent.extention);
   Logs.find({
     'agent.extention': payload.agent.extention
   }).sort({
@@ -13,7 +12,12 @@ exports.findConflict = function(payload) {
     if (err)
       return false;
 
-    console.log(result[0].agent.ip);
+    if (result[0].agent.ip !== payload.agent.ip)
+      console.log('FUCKKKKKKKKK');
+
+    else {
+      console.log('you are gooooooooood!');
+    }
     return true
   })
 }
