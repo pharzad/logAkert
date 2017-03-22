@@ -12,6 +12,9 @@ exports.findConflict = function(payload) {
     if (err)
       return false;
 
+      console.log(payload.timeStamp);
+      console.log(result[0].timeStamp);
+
     if (result[0].agent.ip !== payload.agent.ip)
       console.log('FUCKKKKKKKKK');
 
