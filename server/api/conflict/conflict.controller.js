@@ -13,7 +13,7 @@ exports.findConflict = function(payload) {
     if (err)
       return false;
 
-    console.log(result.agent);
+    console.log(result[0].agent.ip);
     return true
   })
 }
