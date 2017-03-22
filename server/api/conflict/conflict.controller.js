@@ -4,6 +4,7 @@ var Conflict = require('./conflict.model');
 var Logs = require('../log/logs.model');
 
 exports.findConflict = function(payload) {
+  console.log(payload);
   console.log(payload.agent.extension);
   Logs.find({
     'agent.extention': payload.agent.extension
