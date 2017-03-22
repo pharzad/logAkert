@@ -14,13 +14,31 @@ exports.findConflict = function(payload) {
       if (err)
         return false;
 
-console.log(result[0].agent.ip);
-console.log(result[0].timeStamp);
-console.log(payload.agent.ip);
-      if (result[0].agent.ip !== payload.agent.ip)
-        console.log('FUCKKKKKKKKK');
+      console.log(result[0].agent.ip);
+      console.log(result[0].timeStamp);
+      console.log(payload.agent.ip);
+      if (result[0].agent.ip !== payload.agent.ip) {
+        Conflict.findOne({
+          extension: payload.agent.extention
+        }, function(err, conflict) {
+          if (err)
+            return
+          if (!conflict) {
+            var newPlayload = {
+              firtsIp: result[0].agent.ip,
+              secondIp: payload.agent.ip,
+              timeStamp: new Date(),
+              name: payload.agent.name,
+              resolved: true
+            }
+            var newConflict = new Conflict(newPlayload);
+            newConflict.save(function (err, newConflict) {
+              console.log(newConflict);
+            })
+          }
 
-      else {
+        })
+      } else {
         console.log('you are gooooooooood!');
       }
       return true
