@@ -12,7 +12,7 @@ exports.findConflict = function(payload) {
     }).limit(2).exec(function(err, result) {
       if (err)
         return false;
-        
+
       if (result[0].agent.ip !== payload.agent.ip) {
         Conflict.findOne({
           extension: payload.agent.extention
@@ -36,8 +36,8 @@ exports.findConflict = function(payload) {
 
         })
       } else {
-        console.log('you are gooooooooood!');
+        return;
       }
-      return true
+      return;
     })
 }
