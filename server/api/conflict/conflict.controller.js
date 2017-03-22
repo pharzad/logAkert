@@ -5,7 +5,7 @@ var Logs = require('../log/logs.model');
 
 exports.findConflict = function(payload) {
 
-  if (payload.agent.extention === '1003')
+  if (payload.agent.extention === 1003)
     Logs.find({
       'agent.extention': payload.agent.extention
     }).sort({
