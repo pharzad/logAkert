@@ -3,6 +3,7 @@
 var _ = require('lodash');
 var Q = require('q');
 var Logs = require('./logs.model');
+var ConflictCtrl = require('../conflict/conflict.controllers');
 
 function getLatestAgent(agents) {
   var statuses = [];
@@ -167,12 +168,14 @@ exports.count = function(req, res) {
 exports.create = function(req, res) {
   if (req.body) {
     req.body.agent.ip = req.ip;
+    ConflictCtrl.findConflict(req.body);
   }
   //    console.log(req.body);
   Logs.create(req.body, function(err, log) {
     if (err) {
       return handleError(res, err);
     }
+
     return res.status(201).json(log);
   });
 };
