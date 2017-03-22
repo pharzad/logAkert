@@ -29,7 +29,8 @@ exports.findConflict = function(payload) {
               secondIp: payload.agent.ip,
               timeStamp: new Date(),
               name: payload.agent.name,
-              resolved: true
+              extension: payload.agent.extention
+              resolved: false
             }
             var newConflict = new Conflict(newPlayload);
             newConflict.save(function (err, newConflict) {
