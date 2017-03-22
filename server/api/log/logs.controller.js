@@ -3,7 +3,7 @@
 var _ = require('lodash');
 var Q = require('q');
 var Logs = require('./logs.model');
-var ConflictCtrl = require('../conflict/conflict.controllers');
+var ConflictCtrl = require('../conflict/conflict.controller');
 
 function getLatestAgent(agents) {
   var statuses = [];
