@@ -8,6 +8,9 @@ angular.module('portOfAdvsApp')
     }, {
             'title': 'Search',
             'link': '/search/'
+    }, {
+            'title': 'Conflicts',
+            'link': '/conflict/'
     }];
 
         $scope.isCollapsed = true;
