@@ -18,7 +18,26 @@
             </ul>
         </div>
     </div>
-</div>\hellos
+</div>
+
+firtsIp: String,
+secondIp: String,
+name: String,
+extension: Number,
+timeStamp: Date,
+resolved: Boolean
+
+<div class="container">
+    <div class="panel panel-primary agentContainer" ng-repeat="agent in agents">
+        <div class="panel-heading">{{agent.name}}</div>
+        <div class="panel-body">
+            <p>Extension: {{agent.extension}}</p>
+            <p>First Ip: {{agent.firtsIp}}</p>
+            <p>Second Ip: {{agent.secondIp}}</p>
+            <p>TimeStamp: {{agent.timeStamp}}</p>
+        </div>
+    </div>
+  </div>
 <footer class="footer">
     <div class="container">
         <p>CopyRight @TMS |
