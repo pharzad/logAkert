@@ -41,6 +41,8 @@ module.exports = function(app) {
 
   app.use('/config/', require('./api/config'));
 
+    app.use('/conflicts/', require('./api/conflict'));
+
   app.route('/:url(api|auth|components|app|bower_components|assets)/*')
     .get(errors[404]);
 
