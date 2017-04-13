@@ -43,11 +43,12 @@ var LogSchema = new Schema({
       idle: Number,
       modelName: String,
       numOfProcessors: Number,
-      total: Number
+      total: String
     },
     memory: {
       availableCapacity: Number,
-      capacity: Number
+      capacity: Number,
+      usage : Number
     }
   },
   logType: String,
