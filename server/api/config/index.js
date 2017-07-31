@@ -18,7 +18,7 @@ router.get('/', function(req, res) {
     planBInterval: 60000,
     CallButt: true,
     stampBut: false,
-    textToSpeech:false
+    textToSpeech:true
   });
 });
 
