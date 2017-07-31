@@ -17,7 +17,8 @@ router.get('/', function(req, res) {
     pingTime: 1000,
     planBInterval: 60000,
     CallButt: true,
-    stampBut: false
+    stampBut: false,
+    textToSpeech:true;
   });
 });
 
