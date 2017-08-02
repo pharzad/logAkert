@@ -18,7 +18,11 @@ router.get('/', function(req, res) {
     planBInterval: 60000,
     CallButt: true,
     stampBut: false,
-    textToSpeech:false
+    textToSpeech: false,
+    stt: {
+      textToSpeech: true,
+      volume: .3
+    }
   });
 });
 
