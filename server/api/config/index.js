@@ -21,7 +21,7 @@ router.get('/', function(req, res) {
     textToSpeech: false,
     stt: {
       textToSpeech: true,
-      volume: .3
+      volume: .1
     }
   });
 });
