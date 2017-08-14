@@ -14,14 +14,15 @@ router.get('/', function(req, res) {
       refresh: true,
       force: true
     },
-    pingTime: 1000,
-    planBInterval: 60000,
     CallButt: true,
     stampBut: false,
     textToSpeech: false,
     stt: {
       textToSpeech: true,
       volume: .1
+    },
+    freeSwith:{
+      timeout:3600
     }
   });
 });
