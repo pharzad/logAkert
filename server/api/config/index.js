@@ -22,7 +22,7 @@ router.get('/', function(req, res) {
       volume: .1
     },
     freeSwith:{
-      timeout:600
+      timeout:3600
     }
   });
 });
