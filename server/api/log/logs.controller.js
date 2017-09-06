@@ -177,7 +177,7 @@ exports.create = function (req, res) {
       agent: req.addAgent,
       status: req.status.newStatus
     };
-    Agent.addAgent(agent, (err, resulot) => {
+    Agent.addAgent(agent, function(err, resulot) {
 
     });
   }
