@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('portOfAdvsApp')
-  .controller('MainCtrl', function($scope, $http, $state, socket, httpServices, dropDown) {
+  .controller('MainCtrl', function($scope, $http, $state, httpServices, dropDown) {
 
     $scope.selectAgent = function(agent) {
       $state.go('search', {
@@ -77,17 +77,17 @@ angular.module('portOfAdvsApp')
       $scope.agents.status = agentsStatus.data;
     });
 
-    socket.socket.on('log:save', function(res) {
-      if ($scope.liveMode) {
-        if ($scope.liveLogs.length > 100)
-          $scope.liveLogs.shift();
+    // socket.socket.on('log:save', function(res) {
+    //   if ($scope.liveMode) {
+    //     if ($scope.liveLogs.length > 100)
+    //       $scope.liveLogs.shift();
 
-        $scope.liveLogs.push(res);
-        $scope.$apply();
-      }
-    });
+    //     $scope.liveLogs.push(res);
+    //     $scope.$apply();
+    //   }
+    // });
 
-    socket.socket.on('log:error', function(res) {
-      console.warn(res);
-    });
+    // socket.socket.on('log:error', function(res) {
+    //   console.warn(res);
+    // });
   });

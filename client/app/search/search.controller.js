@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('portOfAdvsApp')
-  .controller('SearchCtrl', function($scope, $http, $stateParams, socket, httpServices, dropDown) {
+  .controller('SearchCtrl', function($scope, $http, $stateParams, httpServices, dropDown) {
 
     $scope.searchResult = [];
     $scope.search = {};
@@ -65,17 +65,17 @@ angular.module('portOfAdvsApp')
       });
     };
 
-    socket.socket.on('log:save', function(res) {
-      if ($scope.liveMode) {
-        if ($scope.liveLogs.length > 100)
-          $scope.liveLogs.shift();
+    // socket.socket.on('log:save', function(res) {
+    //   if ($scope.liveMode) {
+    //     if ($scope.liveLogs.length > 100)
+    //       $scope.liveLogs.shift();
 
-        $scope.liveLogs.push(res);
-        $scope.$apply();
-      }
-    });
+    //     $scope.liveLogs.push(res);
+    //     $scope.$apply();
+    //   }
+    // });
 
-    socket.socket.on('log:error', function(res) {
-      console.error(JSON.parse(res));
-    });
+    // socket.socket.on('log:error', function(res) {
+    //   console.error(JSON.parse(res));
+    // });
   });
