@@ -173,10 +173,10 @@ exports.create = function (req, res) {
   }
 
   if (req.body.logType === 'statusChanged') {
-    var agent = {
-      agent: req.body.agent,
-      status: req.body.status.newStatus
-    };
+
+    var agent = req.body.agent;
+    agent.status = req.body.status.newStatus;
+
     Agent.addAgent(agent, function(err, resulot) {
 
     });
