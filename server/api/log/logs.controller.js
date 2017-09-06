@@ -4,16 +4,18 @@ var _ = require('lodash');
 var Q = require('q');
 var Logs = require('./logs.model');
 var ConflictCtrl = require('../conflict/conflict.controller');
+var Agent = require('../agents/agent.controller');
+
 
 function getLatestAgent(agents) {
   var statuses = [];
-  agents.forEach(function(agent) {
+  agents.forEach(function (agent) {
     var deferred = Q.defer();
     Logs.findOne({
       'agent.extension': agent.extention
     }).sort({
       'timeStamp': -1
-    }).exec(function(err, stste) {
+    }).exec(function (err, stste) {
       if (err) {
         return handleError(stste, err);
       }
@@ -25,8 +27,8 @@ function getLatestAgent(agents) {
 }
 
 // Get list of things
-exports.index = function(req, res) {
-  Logs.find(function(err, things) {
+exports.index = function (req, res) {
+  Logs.find(function (err, things) {
     if (err) {
       return handleError(res, err);
     }
@@ -35,11 +37,11 @@ exports.index = function(req, res) {
 };
 
 //test
-exports.latestActivity = function(req, res) {
+exports.latestActivity = function (req, res) {
 
   Logs.find({}).limit(400).sort({
     timeStamp: -1
-  }).exec(function(err, agents) {
+  }).exec(function (err, agents) {
     if (err) {
       return handleError(res, err);
     }
@@ -47,20 +49,20 @@ exports.latestActivity = function(req, res) {
   });
 };
 
-exports.dropDownFields = function(req, res) {
-  Logs.distinct('agent.name').exec(function(err, agents) {
+exports.dropDownFields = function (req, res) {
+  Logs.distinct('agent.name').exec(function (err, agents) {
     if (err) {
       return handleError(res, err);
     }
-    Logs.distinct('error.errorType').exec(function(err, error) {
+    Logs.distinct('error.errorType').exec(function (err, error) {
       if (err) {
         return handleError(res, err);
       }
-      Logs.distinct('logType').exec(function(err, logType) {
+      Logs.distinct('logType').exec(function (err, logType) {
         if (err) {
           return handleError(res, err);
         }
-        Logs.distinct('freeSwitchAddress').exec(function(err, env) {
+        Logs.distinct('freeSwitchAddress').exec(function (err, env) {
           if (err) {
             return handleError(res, err);
           }
@@ -77,12 +79,12 @@ exports.dropDownFields = function(req, res) {
   });
 };
 
-exports.uuid = function(req, res) {
+exports.uuid = function (req, res) {
   var reg = '/' + req.params.uuid + '/';
   console.log(reg);
   Logs.find({
     "webSocket.webSocketBody": new RegExp(reg, 'i')
-  },function(err, result) {
+  }, function (err, result) {
     if (err)
       return res.status(500).json(result);
 
@@ -91,7 +93,7 @@ exports.uuid = function(req, res) {
 }
 
 //Latest Status
-exports.latest = function(req, res) {
+exports.latest = function (req, res) {
   Logs.aggregate([{
     $match: {
       logType: 'statusChanged'
@@ -116,7 +118,7 @@ exports.latest = function(req, res) {
         $first: '$freeSwitchAddress'
       }
     }
-  }]).allowDiskUse(true).exec(function(err, stste) {
+  }]).allowDiskUse(true).exec(function (err, stste) {
     if (err) {
       return handleError(res, err);
     }
@@ -125,11 +127,11 @@ exports.latest = function(req, res) {
 };
 
 // Search for logs
-exports.search = function(req, res) {
+exports.search = function (req, res) {
   console.log(req.body);
   Logs.find(req.body).limit(400).sort({
     timeStamp: -1
-  }).exec(function(err, log) {
+  }).exec(function (err, log) {
     if (err) {
       return handleError(res, err);
     }
@@ -139,8 +141,8 @@ exports.search = function(req, res) {
 };
 
 // Get a single log
-exports.show = function(req, res) {
-  Logs.findById(req.params.id, function(err, log) {
+exports.show = function (req, res) {
+  Logs.findById(req.params.id, function (err, log) {
     if (err) {
       return handleError(res, err);
     }
@@ -152,8 +154,8 @@ exports.show = function(req, res) {
 };
 
 // Count logs
-exports.count = function(req, res) {
-  Logs.find({}).count().exec(function(err, log) {
+exports.count = function (req, res) {
+  Logs.find({}).count().exec(function (err, log) {
     if (err) {
       return handleError(res, err);
     }
@@ -165,13 +167,23 @@ exports.count = function(req, res) {
 };
 
 // Creates a new Log in the DB.
-exports.create = function(req, res) {
+exports.create = function (req, res) {
   if (req.body) {
     req.body.agent.ip = req.ip;
-    //ConflictCtrl.findConflict(req.body);
   }
+
+  if (req.body.logType === 'statusChanged') {
+    let agent = {
+      agent: req.addAgent,
+      status: req.status.newStatus
+    };
+    Agent.addAgent(agent, (err, resulot) => {
+
+    });
+  }
+
   //    console.log(req.body);
-  Logs.create(req.body, function(err, log) {
+  Logs.create(req.body, function (err, log) {
     if (err) {
       return handleError(res, err);
     }
@@ -181,8 +193,8 @@ exports.create = function(req, res) {
 };
 
 // Empty log collection
-exports.empty = function(req, res) {
-  Logs.remove(req.body, function(err) {
+exports.empty = function (req, res) {
+  Logs.remove(req.body, function (err) {
     if (err) {
       return handleError(res, err);
     }
@@ -191,11 +203,11 @@ exports.empty = function(req, res) {
 };
 
 // Updates an existing log in the DB.
-exports.update = function(req, res) {
+exports.update = function (req, res) {
   if (req.body._id) {
     delete req.body._id;
   }
-  Logs.findById(req.params.id, function(err, log) {
+  Logs.findById(req.params.id, function (err, log) {
     if (err) {
       return handleError(res, err);
     }
@@ -203,7 +215,7 @@ exports.update = function(req, res) {
       return res.status(404).send('Not Found');
     }
     var updated = _.merge(log, req.body);
-    updated.save(function(err) {
+    updated.save(function (err) {
       if (err) {
         return handleError(res, err);
       }
@@ -213,15 +225,15 @@ exports.update = function(req, res) {
 };
 
 // Deletes a log from the DB.
-exports.destroy = function(req, res) {
-  Logs.findById(req.params.id, function(err, log) {
+exports.destroy = function (req, res) {
+  Logs.findById(req.params.id, function (err, log) {
     if (err) {
       return handleError(res, err);
     }
     if (!log) {
       return res.status(404).send('Not Found');
     }
-    log.remove(function(err) {
+    log.remove(function (err) {
       if (err) {
         return handleError(res, err);
       }
