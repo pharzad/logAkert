@@ -2,7 +2,7 @@
 var Agent = require('./agent.model');
 
 exports.addAgent = function (agent, callBack) {
-    Agent.update({ extention: agent.extention }, agent, { overwrite: true }, function(err, result) {
+    Agent.update({ extention: agent.extention }, agent, { overwrite: true, upsert:true }, function(err, result) {
         if (err) {
             console.log(err);
             return callBack(err);
