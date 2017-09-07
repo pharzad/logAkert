@@ -18,8 +18,8 @@ router.get('/', function(req, res) {
     stampBut: false,
     textToSpeech: false,
     stt: {
-      textToSpeech: true,
-      volume: .1
+      textToSpeech: false,
+      volume: .0
     },
     freeSwith:{
       timeout:3600
