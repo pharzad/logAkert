@@ -73,7 +73,7 @@ angular.module('portOfAdvsApp')
     };
 
     httpServices.getLatestStatus().then(function(agentsStatus) {
-      console.console(agentsStatus);
+      console.log(agentsStatus);
       $scope.agents = agentsStatus.data;
     });
 
