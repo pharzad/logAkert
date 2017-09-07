@@ -37,6 +37,7 @@ angular.module('portOfAdvsApp')
     $scope.changeLog = function(item) {
       $scope.liveLogs = [];
       $scope.agents.status = [];
+      $scope.agentsStatus = [];
       $scope.liveMode = false;
       switch (item) {
         case 'Agents Status':
@@ -46,7 +47,7 @@ angular.module('portOfAdvsApp')
           break;
         case 'Latest Logs':
           httpServices.getLatestActivity().then(function(agentsStatus) {
-            $scope.agents.status = agentsStatus.data;
+            $scope.agentsStatus = agentsStatus.data;
           });
           break;
         case 'All Errors':
