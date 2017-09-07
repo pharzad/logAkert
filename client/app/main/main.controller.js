@@ -42,7 +42,7 @@ angular.module('portOfAdvsApp')
       switch (item) {
         case 'Agents Status':
           httpServices.getLatestStatus().then(function(agentsStatus) {
-            $scope.agents.status = agentsStatus.data;
+            $scope.agentsStatus = agentsStatus.data;
           });
           break;
         case 'Latest Logs':
