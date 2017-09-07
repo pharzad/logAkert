@@ -9,6 +9,15 @@ exports.addAgent = function (agent, callBack) {
         }
 
         callBack(err, result);
-    })
+    });
+}
 
+exports.getAgents = function(req, res){
+    Agent.find({}, function(err, result){
+        if (err){
+            return res.send(err);
+        }
+
+        res.json(result);
+    });
 }
