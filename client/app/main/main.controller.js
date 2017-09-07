@@ -5,7 +5,7 @@ angular.module('portOfAdvsApp')
 
     $scope.selectAgent = function(agent) {
       $state.go('search', {
-        agent: agent.extension
+        agent: agent.extention
       });
     }
     $scope.liveMode = false;
