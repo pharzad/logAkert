@@ -15,8 +15,6 @@ angular.module('portOfAdvsApp')
     $scope.menu = [{
       'title': 'Agents Status'
     }, {
-      'title': 'Live Logs'
-    }, {
       title: 'Fe Error'
     }, {
       title: 'All Errors'

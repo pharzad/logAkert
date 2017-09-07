@@ -7,7 +7,7 @@ angular.module('portOfAdvsApp')
     var http = {};
 
     http.getLatestStatus = function() {
-      return $http.get(server + 'api/logs/getLatestStatus');
+      return $http.get(server + 'api/agents/');
     };
 
     http.getLatestActivity = function() {
