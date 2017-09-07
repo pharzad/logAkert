@@ -42,7 +42,6 @@ angular.module('portOfAdvsApp')
       switch (item) {
         case 'Agents Status':
           httpServices.getLatestStatus().then(function(agentsStatus) {
-            console.console(agentsStatus);
             $scope.agentsStatus = agentsStatus.data;
           });
           break;
@@ -74,7 +73,8 @@ angular.module('portOfAdvsApp')
     };
 
     httpServices.getLatestStatus().then(function(agentsStatus) {
-      $scope.agents.status = agentsStatus.data;
+      console.console(agentsStatus);
+      $scope.agents = agentsStatus.data;
     });
 
     // socket.socket.on('log:save', function(res) {
