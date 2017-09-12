@@ -3,7 +3,7 @@
 angular.module('portOfAdvsApp')
   .factory('httpServices', function($http) {
 
-    var server = 'http://10.253.0.5/';
+    var server = 'http://localhost/';
     var http = {};
 
     http.getLatestStatus = function() {
