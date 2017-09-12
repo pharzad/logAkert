@@ -1,9 +1,9 @@
 'use strict';
 
 angular.module('portOfAdvsApp')
-  .factory('httpServices', function($http) {
+  .factory('httpServices', function($http, httpUrl) {
 
-    var server = 'http://localhost/';
+    var server = httpUrl.url();
     var http = {};
 
     http.getLatestStatus = function() {
